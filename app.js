@@ -16,7 +16,9 @@ function Room(roomId,roomType,imgSrc,isVacant,allowedOccupancy,roomLayoutSrc,ice
   this.kitchenette = kitchenette;
 }
 
-function Hotel(hotelImgSrc,hotelLayoutSrc, hotelRooms){
+function Hotel(hotelName,hotelAddress,hotelImgSrc,hotelLayoutSrc, hotelRooms){
+  this.hotelName = hotelName;
+  this.hotelAddress = hotelAddress;
   this.hotelImgSrc = hotelImgSrc;
   this.hotelLayoutSrc = hotelLayoutSrc;
   this.hotelRooms = {};
@@ -42,4 +44,4 @@ var hotelRoomsA = [
   ,new Room('1C', 'Business Class','placeholder.jpg', true,'3','placeholder2.svg',false,false,true,true,false,true,false)
 ];
 
-var hotelA = new Hotel('hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
+var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
