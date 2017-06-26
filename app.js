@@ -15,6 +15,8 @@ Rooms.prototype.displayRoom = function(){
   //build display of room information to show when li is selected
 };
 
-function Hotels(){
-  //build a hotel
+function Hotels(rooms,hotelImgSrc,hotelLayoutSrc){
+  this.rooms = rooms;
+  this.hotelImgSrc = hotelImgSrc;
+  this.hotelLayoutSrc = hotelLayoutSrc;
 }
