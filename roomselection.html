@@ -10,14 +10,22 @@
   <header>
     <img src="http://cdn.makeuseof.com/wp-content/uploads/2008/09/internet_explorer_7_logo.png?x92042"/>
     <h1>Hotel Name</h1>
-    <p></p>
+    <p>Room selector powered by: Product name tbd</p>
 
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="roomselection.html">Reserve Now!</a></li>
+        <li><a href="">About Us</a></li>
+      </ul>
+    </nav>
     <!--paste chucks info-->
   </header>
 
   <aside>
     <h3>Filter by:</h3>
     <form>
+      <fieldset>
         <select name="Room Type">
           <option selected disabled>Choose room type</option>
           <option>Executive Suite</option>
@@ -26,7 +34,8 @@
           <option>Family Economy</option>
           <option>Business Class</option>
         </select>
-      <label><input id="occupants" type="number" min="1"/># of occupants</label>
+        <label><input id="occupants" type="number" min="1"/># of occupants</label>
+      </fieldset>
       <fieldset>
         <h3>Options:</h3>
         <label><input id="ice-cream-bar" type="checkbox"/>Ice Cream Bar</label>
@@ -37,7 +46,6 @@
         <label><input id="microwave"type="checkbox"/>Microwave</label>
         <label><input id="kitchenette"type="checkbox"/>Kitchenette</label>
       </fieldset>
-
     </form>
   </aside>
 
