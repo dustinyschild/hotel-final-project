@@ -22,9 +22,15 @@ function Hotel(hotelName,hotelAddress,hotelImgSrc,hotelLayoutSrc, hotelRooms){
   this.hotelImgSrc = hotelImgSrc;
   this.hotelLayoutSrc = hotelLayoutSrc;
   this.hotelRooms = {};
+
+  this.buildRooms(hotelRooms);
 }
 Hotel.prototype.buildRooms = function(hotelRooms){
-  //build me an object full of Room objects plox
+  var roomsHere = {};
+  hotelRooms.forEach(function(item){
+    roomsHere[item.roomId] = item;
+  });
+  this.hotelRooms = roomsHere;
 };
 Hotel.prototype.displayRoom = function(){
   //build display of room information to show when li is selected
@@ -45,3 +51,4 @@ var hotelRoomsA = [
 ];
 
 var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
+console.log(hotelA);
