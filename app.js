@@ -16,15 +16,23 @@ function Room(roomId,roomType,imgSrc,isVacant,allowedOccupancy,roomLayoutSrc,ice
   this.kitchenette = kitchenette;
 }
 
-Room.prototype.displayRoom = function(){
-  //build display of room information to show when li is selected
-};
-
 function Hotel(hotelImgSrc,hotelLayoutSrc, hotelRooms){
   this.hotelImgSrc = hotelImgSrc;
   this.hotelLayoutSrc = hotelLayoutSrc;
-  this.hotelRooms = hotelRooms || [];
+  this.hotelRooms = {};
 }
+Hotel.prototype.buildRooms = function(hotelRooms){
+  //build me an object full of Room objects plox
+};
+Hotel.prototype.displayRoom = function(){
+  //build display of room information to show when li is selected
+};
+Hotel.prototype.randomOccupancy = function(){
+  //i can haz random isVancant value in this.hotelRooms plox?
+};
+Hotel.prototype.getOccupancyFromLocalStorage = function(){
+  //what it says on the tin.  Update occupancy in this.hotelRooms from local storage
+};
 
 var hotelRoomsA = [
   new Room('2A', 'Executive Suite','placeholder.jpg',true,'10','placeholder2.svg',true,true,true,false,false,false,true)
