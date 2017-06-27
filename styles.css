@@ -4,6 +4,10 @@ fancy -- font-family: 'Petit Formal Script', cursive;
 normal -- font-family: 'Bubbler One', sans-serif;
 
 font color: #f7f5e6 cream
+
+* {
+  border: 1px solid red;
+}
 */
 h1{
   font-family: 'Teko', sans-serif;
@@ -20,11 +24,28 @@ font-family: 'Cabin', sans-serif;
   margin:  0px auto;
   padding: 0px auto;
 
+
 }
+
 
 #logo{
   float: left;
   display: inline;
+}
+#outterWrapper {
+
+  position:static
+  height: auto;
+  min-height: 100%;
+  margin:     0px auto;
+  padding:    0px auto;
+  min-width: 320px;
+  max-width: 960px;
+  margin: auto;
+  height: 728;
+  border: 1px solid green;
+  display: block;
+  background-color: none;
 }
 #wrapper {
   height: auto;
@@ -33,7 +54,7 @@ font-family: 'Cabin', sans-serif;
   padding:    0px auto;
   position: relative;
   min-width: 320px;
-  width: 960px;
+  max-width: 960px;
   margin: auto;
   height: 728;
   background-color: none;
@@ -42,6 +63,7 @@ font-family: 'Cabin', sans-serif;
   border: 1px solid none;
   display: block;
 }
+
 header {
   position: fixed;
   margin: 0px auto;
