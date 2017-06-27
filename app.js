@@ -38,10 +38,10 @@ Hotel.prototype.displayRoom = function(){
 };
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
-    if (this.hotelRooms.hasOwnProperty(key)) { // not sure if necessairy...
+    if (this.hotelRooms.hasOwnProperty(key)) { // not sure if necessairy, shouldn't be anything in the prototype that will make issues.
       var obj = this.hotelRooms[key];
       for (var property in obj) {
-        if (obj.hasOwnProperty(property)) {
+        if (obj.hasOwnProperty(property)) { // pretty sure this one is unnecesairy as well.
           if(property === 'isVacant'){
             if(Math.random() < 0.2){
               obj[property] = false;
@@ -53,8 +53,12 @@ Hotel.prototype.randomOccupancy = function(){
   }
 };
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
-  //what it says on the tin.  Update occupancy in this.hotelRooms from local storage
+  //what it says on the tin.  Update occupancy in this.hotelRooms from local storage -- remember to not run randomOccupancy method automatically if there are values in local storage.
 };
+
+function writeVancanyToLocalStorage(){
+  // use this to write our occupanies to local storage
+}
 
 var hotelRoomsA = [
   new Room('2A', 'Executive Suite','placeholder.jpg',true,'10','placeholder2.svg',true,true,true,false,false,false,true)
