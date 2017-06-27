@@ -22,15 +22,15 @@ function Hotel(hotelName,hotelAddress,hotelImgSrc,hotelLayoutSrc, hotelRooms){
   this.hotelAddress = hotelAddress;
   this.hotelImgSrc = hotelImgSrc;
   this.hotelLayoutSrc = hotelLayoutSrc;
-  this.hotelRooms = {};
+  this.hotelRooms = [];
 
-  this.buildRooms(hotelRooms);
+  this.buildRooms(hotelRoomsA);
   this.randomOccupancy();
 }
 Hotel.prototype.buildRooms = function(hotelRooms){
-  var roomsHere = {};
   hotelRooms.forEach(function(item){
-    roomsHere[item.roomId] = item;
+    var key = item.roomId;
+    this.hotelRooms.push({key: item});
   });
   this.hotelRooms = roomsHere;
 };
@@ -39,7 +39,7 @@ var roomClick1A = document.getElementById('1A');
 roomClick1A.addEventListener('click', displayRoom(hotelA,'1A'));
 
 function displayRoom(hotelID, roomID) {
-var testImage =
+var testImage = '';
 
   if(document.getElementsByClassName('pop-up')) {
     var oldRoom = document.getElementsByClassName('pop-up')[0];
