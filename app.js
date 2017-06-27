@@ -27,14 +27,15 @@ function Hotel(hotelName,hotelAddress,hotelImgSrc,hotelLayoutSrc, hotelRooms){
   this.buildRooms(hotelRoomsA);
   this.randomOccupancy();
 }
-Hotel.prototype.buildRooms = function(hotelRooms){
-  hotelRooms.forEach(function(item){
+Hotel.prototype.buildRooms = function(roomsList){
+  var roomsHere = [];
+  roomsList.forEach(function(item){
     var key = item.roomId;
-    this.hotelRooms.push({key: item});
+    roomsHere.push({key: item});
   });
   this.hotelRooms = roomsHere;
 };
-
+/*
 var roomClick1A = document.getElementById('1A');
 roomClick1A.addEventListener('click', displayRoom(hotelA,'1A'));
 
@@ -59,22 +60,18 @@ var testImage = '';
   var roomRate = document.createElement('li');
   var roomOccupancy = document.createElement('li');
 }
-
+*/
 Hotel.prototype.randomOccupancy = function(){
-  for (var key in this.hotelRooms) {
-    if (this.hotelRooms.hasOwnProperty(key)) { // not sure if necessairy, shouldn't be anything in the prototype that will make issues.
-      var obj = this.hotelRooms[key];
-      for (var property in obj) {
-        if (obj.hasOwnProperty(property)) { // pretty sure this one is unnecesairy as well.
-          if(property === 'isVacant'){
-            if(Math.random() < 0.2){
-              obj[property] = false;
-            }
-          }
+  this.hotelRooms.forEach(function(item){
+    for (var key in item){
+      if (key === 'isVacant'){
+        if(Math.random() < 0.5) {
+          item[key] = false;
+          console.log(key, item[key]);
         }
       }
     }
-  }
+  });
 };
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
   //what it says on the tin.  Update occupancy in this.hotelRooms from local storage -- remember to not run randomOccupancy method automatically if there are values in local storage.
