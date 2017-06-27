@@ -36,16 +36,22 @@ Hotel.prototype.buildRooms = function(hotelRooms){
 };
 
 var roomClick1A = document.getElementById('1A');
-roomClick1A.addEventListener('click', displayRoom('1A'));
+roomClick1A.addEventListener('click', displayRoom(hotelA,'1A'));
 
-function displayRoom(roomID) {
+function displayRoom(hotelID, roomID) {
+var testImage =
+
   if(document.getElementsByClassName('pop-up')) {
     var oldRoom = document.getElementsByClassName('pop-up')[0];
     oldRoom.remove();
   }
   var popUpContainer = document.getElementsByClassName('hotel-container');
   var newPopUp = document.createElement('div');
+  newPopUp.className = 'pop-up';
   var roomImage = document.createElement('img');
+  roomImage.setAttribute('src', testImage);
+  console.log(roomImage);
+  console.log(roomImage.getAttribute('src'));
   var roomNumber = document.createElement('h3');
   var itemList = document.createElement('ul');
   var roomType = document.createElement('li');
