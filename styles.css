@@ -54,7 +54,6 @@ font-family: 'Cabin', sans-serif;
   margin:     0px auto;
   padding:    0px auto;
   padding-top: 100px;
-
   position: relative;
   min-width: 320px;
   width: 90%;
@@ -76,8 +75,8 @@ header {
   text-align: center;
 }
 #headerBlack{
-  background-color: yellow;
-  top: 0
+  background-color: black;
+  top: 0;
 
 }
 #headerNav{
@@ -89,10 +88,14 @@ header {
 aside{
   float: left;
   width: 30%;
-  background-color: orange
+  background-color: #f7f5e6;
+  color: black;
 }
 form {
   padding: 15px;
+
+}
+h3{margin: 15px 15px 0px 10px;
 
 }
 .asideH3{
@@ -125,31 +128,35 @@ label{
 }
 #hotelContainerHeader{
     text-align: center;
+    padding-bottom: 15px;
     border: 1px solid green;
 }
-.hotelPlan{
-  position: relative;
-  display: block;
+#hotelPlan{
   padding-left: 20px;
-  background-image: url("Pictures/svgTest1.svg");
+  padding-right: 40px;
   height: 400px;
-  background-repeat: no-repeat;
+  float: left;
 }
 .pop-up{
   margin: auto;
   max-width: 50%;
   border: 1px solid red;
-  position: relative;
+  position: absolute;
+  top: 162px;
+  right: 75px;
 }
-.popUpSrc{
-  border: 1px solid yellow;
+#roomImage{
+  margin: 0px auto;
+}
 
-
+h4 {
+  margin: 7px 7px;
+}
+ul{
+  padding: 0px
 }
 footer {
-  position: absolute;
   bottom: 0px;
-
   padding: 0px auto;
   background-color: none;
   width: 100%;
@@ -157,6 +164,17 @@ footer {
   display: block;
   text-align: center;
   line-height: 1.5em;
+  clear: both;
+}
+.absoluteFooter {
+  position: absolute;
+}
+
+.relativefooter {
+  position: relative;
+  top: 100px;
+  margin-top: 100px;
+
 }
 li {
   display: inline;
