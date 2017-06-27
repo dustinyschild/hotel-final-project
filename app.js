@@ -34,8 +34,11 @@ Hotel.prototype.buildRooms = function(hotelRooms){
   });
   this.hotelRooms = roomsHere;
 };
+
+var roomClick1 = document.getElementById('');
+
 Hotel.prototype.displayRoom = function(){
-  //build display of room information to show when li is selected
+
 };
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
@@ -67,6 +70,11 @@ var hotelRoomsA = [
   ,new Room('1A', 'Basic Economy','50.00','placeholder.jpg', true,'4','placeholder2.svg',false,false,false,false,true,false,false)
   ,new Room('1B', 'Family Economy','80.00','placeholder.jpg', true,'5','placeholder2.svg',false,false,false,false,true,true,false)
   ,new Room('1C', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,true,true,false,true,false)
+  ,new Room('2C', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,true,true,false,true,false)
+  ,new Room('1D', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,true,true,false,true,false)
+  ,new Room('2D', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,true,true,false,true,false)
+  ,new Room('1E', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,true,true,false,true,false)
+
 ];
 
 var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
