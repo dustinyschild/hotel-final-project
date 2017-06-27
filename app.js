@@ -48,7 +48,6 @@ function displayRoom(e) {
   var targetRoomType = getTargetHotelRommProperty(targetRoom, 'roomType');
   var targetRoomRate = getTargetHotelRommProperty(targetRoom, 'roomRate');
   var targetRoomOccupancy = getTargetHotelRommProperty(targetRoom, 'allowedOccupancy');
-  console.log(targetRoom, targetRoomType, targetRoomRate, targetRoomOccupancy);
   if(document.getElementsByClassName('pop-up')) {
     var oldRoom = document.getElementsByClassName('pop-up')[0];
     oldRoom.remove();
@@ -67,17 +66,18 @@ function displayRoom(e) {
   var itemList = document.createElement('ul');
   newPopUp.appendChild(itemList);
   var roomType = document.createElement('li');
-  roomType.innerText = 'room type here';
+  roomType.innerText = targetRoomType;
   itemList.appendChild(roomType);
-  var roomAmenities = document.createElement('li');
-  roomAmenities.innerText = 'Amenities listed here';
-  itemList.appendChild(roomAmenities);
   var roomRate = document.createElement('li');
-  roomRate.innerText = 'price here';
+  roomRate.innerText = targetRoomRate;
   itemList.appendChild(roomRate);
   var roomOccupancy = document.createElement('li');
-  roomOccupancy.innerText = 'max occupancy here';
+  roomOccupancy.innerText = targetRoomOccupancy;
   itemList.appendChild(roomOccupancy);
+  var roomAmenitiesList = document.createElement('ul');
+  itemList.appendChild(roomAmenitiesList);
+  buildTrueAmenitiesList(roomAmenitiesList, targetRoom);
+
 }
 
 Hotel.prototype.randomOccupancy = function(){
@@ -100,6 +100,29 @@ function getTargetHotelRommProperty(targetRoom, propertyName) {
     }
   }
   return target;
+}
+
+function buildTrueAmenitiesList(container, targetRoom) {
+  for (var key in hotelA.hotelRooms){
+    if (key === targetRoom){
+      var obj = hotelA.hotelRooms[key];
+      for (var property in obj) {
+        if (property === 'iceCreamBar' ||
+        property === 'wetBar' ||
+        property === 'hotTub' ||
+        property === 'miniBar' ||
+        property === 'fridge' ||
+        property === 'microwave' ||
+        property === 'kitchenette'){
+          if (obj[property]) {
+            var roomAmenity = document.createElement('li');
+            roomAmenity.innerText = property;
+            container.appendChild(roomAmenity);
+          }
+        }
+      }
+    }
+  }
 }
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
   //what it says on the tin.  Update occupancy in this.hotelRooms from local storage -- remember to not run randomOccupancy method automatically if there are values in local storage.
