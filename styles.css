@@ -1,9 +1,10 @@
 /*
 Header- font-family: 'Teko', sans-serif;
 fancy -- font-family: 'Petit Formal Script', cursive;
-normal -- font-family: 'Bubbler One', sans-serif;
+normal -- font-family: 'Cabin', sans-serif;
 
 font color: #f7f5e6 cream
+background color: black
 */
 h1{
   font-family: 'Teko', sans-serif;
@@ -11,7 +12,12 @@ h1{
   margin: 0;
   padding: 0;
 }
-
+#logoPlaceHolderText{
+  font-family: 'Teko', sans-serif;
+  font-size: 4em;
+  margin: 0;
+  padding: 0;
+}
 html, body{
 font-family: 'Cabin', sans-serif;
   background-color: black;
@@ -42,6 +48,21 @@ font-family: 'Cabin', sans-serif;
   border: 1px solid none;
   display: block;
 }
+#wrapperBlack {
+  height: auto;
+  min-height: 100%;
+  margin:     0px auto;
+  padding:    0px auto;
+  padding-top: 100px;
+  position: relative;
+  min-width: 320px;
+  width: 90%;
+  margin: auto;
+  height: 728;
+  background-color: black;
+  border: 1px solid none;
+  display: block;
+}
 header {
   position: fixed;
   margin: 0px auto;
@@ -53,13 +74,89 @@ header {
   display: block;
   text-align: center;
 }
+#headerBlack{
+  background-color: black;
+  top: 0;
+
+}
 #headerNav{
   float: right;
 }
-footer {
-  position: absolute;
-  bottom: 0px;
 
+/*------------------Left Aside------------------*/
+
+aside{
+  float: left;
+  width: 30%;
+  background-color: #f7f5e6;
+  color: black;
+}
+form {
+  padding: 15px;
+
+}
+h3{margin: 15px 15px 0px 10px;
+
+}
+.asideH3{
+  padding-left: 15px;
+
+}
+select {
+  width: 170px;
+  display: inline-block;
+  margin: 4px 0px;
+}
+#occupants{
+  width: 50px;
+
+}
+label{
+  margin: 2px 0px;
+  display: inline-block;
+}
+/*------------------End Left Aside------------------*/
+
+
+/*------------------Right Room Picker Div------------------*/
+
+.hotel-container{
+  float: right;
+  border: 1px solid blue;
+  width: 68%;
+
+}
+#hotelContainerHeader{
+    text-align: center;
+    padding-bottom: 15px;
+    border: 1px solid green;
+}
+#hotelPlan{
+  padding-left: 20px;
+  padding-right: 40px;
+  height: 400px;
+  float: left;
+}
+.pop-up{
+  margin: auto;
+  max-width: 50%;
+  border: 1px solid red;
+  position: absolute;
+  top: 162px;
+  right: 75px;
+}
+#roomImage{
+  margin: 0px auto;
+}
+
+h4 {
+  margin: 7px 7px;
+}
+ul{
+  padding: 0px
+}
+footer {
+  bottom: 0px;
   padding: 0px auto;
   background-color: none;
   width: 100%;
@@ -67,6 +164,16 @@ footer {
   display: block;
   text-align: center;
   line-height: 1.5em;
+  clear: both;
+}
+.absoluteFooter {
+  position: absolute;
+}
+
+.relativeFooter {
+  position: relative;
+  top: 50px;
+
 }
 li {
   display: inline;
