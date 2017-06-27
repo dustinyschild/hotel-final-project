@@ -35,11 +35,13 @@ Hotel.prototype.buildRooms = function(hotelRooms){
   this.hotelRooms = roomsHere;
 };
 
-var roomClick1 = document.getElementById('');
+var roomClick1A = document.getElementById('1A');
+roomClick1A.addEventListener('click', displayRoom('1A'));
 
-Hotel.prototype.displayRoom = function(){
+function displayRoom(roomID) {
+  //displays The room
+}
 
-};
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
     if (this.hotelRooms.hasOwnProperty(key)) { // not sure if necessairy, shouldn't be anything in the prototype that will make issues.
