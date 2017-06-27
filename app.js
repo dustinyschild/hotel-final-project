@@ -43,15 +43,12 @@ roomClick1A.addEventListener('click', function(event) {
 
 function displayRoom(e) {
 //var testImage = '';
-  var targetImage;
   var targetRoom = e.target.getAttribute('id');
-  for (var key in hotelA.hotelRooms){
-    if (key === targetRoom){
-      var rooms = hotelA.hotelRooms[key];
-      targetImage = hotelA.hotelRooms[key].imgSrc;
-      console.log(targetImage);
-    }
-  }
+  var targetImage = getTargetHotelRommProperty(targetRoom, 'imgSrc');
+  var targetRoomType = getTargetHotelRommProperty(targetRoom, 'roomType');
+  var targetRoomRate = getTargetHotelRommProperty(targetRoom, 'roomRate');
+  var targetRoomOccupancy = getTargetHotelRommProperty(targetRoom, 'allowedOccupancy');
+  console.log(targetRoom, targetRoomType, targetRoomRate, targetRoomOccupancy);
   if(document.getElementsByClassName('pop-up')) {
     var oldRoom = document.getElementsByClassName('pop-up')[0];
     oldRoom.remove();
@@ -65,7 +62,7 @@ function displayRoom(e) {
   roomImage.setAttribute('src', targetImage);
   newPopUp.appendChild(roomImage);
   var roomNumber = document.createElement('h3');
-  roomNumber.innerText = 'some text here';
+  roomNumber.innerText = targetRoom;
   newPopUp.appendChild(roomNumber);
   var itemList = document.createElement('ul');
   newPopUp.appendChild(itemList);
@@ -95,10 +92,18 @@ Hotel.prototype.randomOccupancy = function(){
     }
   }
 };
+
+function getTargetHotelRommProperty(targetRoom, propertyName) {
+  for (var key in hotelA.hotelRooms){
+    if (key === targetRoom){
+      var target = hotelA.hotelRooms[key][propertyName];
+    }
+  }
+  return target;
+}
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
   //what it says on the tin.  Update occupancy in this.hotelRooms from local storage -- remember to not run randomOccupancy method automatically if there are values in local storage.
 };
-
 function writeVancanyToLocalStorage(){
   // use this to write our occupanies to local storage
 }
