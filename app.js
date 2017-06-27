@@ -36,43 +36,6 @@ Hotel.prototype.buildRooms = function(roomsList){
   this.hotelRooms = roomsHere;
 };
 
-var roomClick1A = document.getElementById('1A');
-roomClick1A.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick1B = document.getElementById('1B');
-roomClick1B.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick1C = document.getElementById('1C');
-roomClick1C.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick1D = document.getElementById('1D');
-roomClick1D.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick1E = document.getElementById('1E');
-roomClick1E.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick2A = document.getElementById('2A');
-roomClick2A.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick2B = document.getElementById('2B');
-roomClick2B.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick2C = document.getElementById('2C');
-roomClick2C.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick2D = document.getElementById('2D');
-roomClick2D.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-
 Hotel.prototype.displayRoom = function(e) {
 //var testImage = '';
   var targetRoom = e.target.getAttribute('id');
@@ -158,7 +121,6 @@ Hotel.prototype.randomOccupancy = function(){
   }
 };
 
-
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
   //what it says on the tin.  Update occupancy in this.hotelRooms from local storage -- remember to not run randomOccupancy method automatically if there are values in local storage.
 };
@@ -180,3 +142,40 @@ var hotelRoomsA = [
 
 var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
 console.log(hotelA);
+
+var roomClick1A = document.getElementById('1A');
+roomClick1A.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
+var roomClick1B = document.getElementById('1B');
+roomClick1B.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
+var roomClick1C = document.getElementById('1C');
+roomClick1C.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
+var roomClick1D = document.getElementById('1D');
+roomClick1D.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
+var roomClick1E = document.getElementById('1E');
+roomClick1E.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
+var roomClick2A = document.getElementById('2A');
+roomClick2A.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
+var roomClick2B = document.getElementById('2B');
+roomClick2B.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
+var roomClick2C = document.getElementById('2C');
+roomClick2C.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
+var roomClick2D = document.getElementById('2D');
+roomClick2D.addEventListener('click', function(event) {
+  hotelA.displayRoom(event);
+});
