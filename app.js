@@ -24,6 +24,7 @@ function Hotel(hotelName,hotelAddress,hotelImgSrc,hotelLayoutSrc, hotelRooms){
   this.hotelRooms = {};
 
   this.buildRooms(hotelRooms);
+  this.randomOccupancy();
 }
 Hotel.prototype.buildRooms = function(hotelRooms){
   var roomsHere = {};
@@ -36,7 +37,20 @@ Hotel.prototype.displayRoom = function(){
   //build display of room information to show when li is selected
 };
 Hotel.prototype.randomOccupancy = function(){
-  //i can haz random isVancant value in this.hotelRooms plox?
+  for (var key in this.hotelRooms) {
+    if (this.hotelRooms.hasOwnProperty(key)) { // not sure if necessairy...
+      var obj = this.hotelRooms[key];
+      for (var property in obj) {
+        if (obj.hasOwnProperty(property)) {
+          if(property === 'isVacant'){
+            if(Math.random() < 0.2){
+              obj[property] = false;
+            }
+          }
+        }
+      }
+    }
+  }
 };
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
   //what it says on the tin.  Update occupancy in this.hotelRooms from local storage
