@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Select a Room</title>
+  <link href="styles.css" rel="stylesheet"/>
+</head>
+
+<body>
+  <header>
+    <!--paste chucks info-->
+  </header>
+
+  <aside>
+    <h3>Filter by:</h3>
+    <form>
+      <fieldset>
+        <select name="Room Type">
+          <option selected disabled>Choose room type</option>
+          <option>Executive Suite</option>
+          <option>Family Suite</option>
+          <option>Basic Economy</option>
+          <option>Family Economy</option>
+          <option>Business Class</option>
+        </select>
+        <label><input id="occupants" type="number" min="1"/># of occupants</label>
+      </fieldset>
+      <fieldset>
+        <h3>Options:</h3>
+        <label><input id="ice-cream-bar" type="checkbox"/>Ice Cream Bar</label>
+        <label><input id="wet-bar" type="checkbox"/>Wet Bar</lable>
+        <label><input id="hot-tub" type="checkbox"/>Hot Tub</label>
+        <label><input id="mini-bar" type="checkbox"/>Mini Bar</label>
+        <label><input id="fridge" type="checkbox"/>Fridge</label>
+        <label><input id="microwave"type="checkbox"/>Microwave</label>
+        <label><input id="kitchenette"type="checkbox"/>Kitchenette</label>
+      </fieldset>
+    </form>
+  </aside>
+
+  <div class="hotel-container">
+    <div class="pick-room">
+      <h3>Welcome!</h3>
+      <p>Please use the floorplan below to pick your desired room.</p>
+      <div class="rooms" id="room-one">Room1</div>
+      <div class="rooms" id="room-two">Room2</div>
+      <div class="rooms" id="room-three">Room3</div>
+      <div class="rooms" id="room-four">Room4</div>
+      <div class="rooms" id="room-five">Room5</div>
+      <div class="rooms" id="room-six">Room6</div>
+      <div class="rooms" id="room-seven">Room7</div>
+      <div class="rooms" id="room-eight">Room8</div>
+      <div class="rooms" id="room-nine">Room9</div>
+    </div>
+
+    <div class="pop-up">
+      <h4>Room: number</h4>
+      <img src="http://www.qygjxz.com/data/out/193/4968251-random-image.gif"/>
+      <ul>
+        <li>Property1</li>
+        <li>Property2</li>
+        <li>Property3</li>
+        <li>Property4</li>
+      </ul>
+    </div>
+  </div>
+  
+  <footer>
+    <!--paste chucks info-->
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>
