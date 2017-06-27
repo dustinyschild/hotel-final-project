@@ -35,32 +35,44 @@ Hotel.prototype.buildRooms = function(roomsList){
   });
   this.hotelRooms = roomsHere;
 };
-/*
-var roomClick1A = document.getElementById('1A');
-roomClick1A.addEventListener('click', displayRoom(hotelA,'1A'));
 
-function displayRoom(hotelID, roomID) {
-var testImage = '';
+var roomClick1A = document.getElementById('1A');
+roomClick1A.addEventListener('click', displayRoom);
+
+function displayRoom() {
+//var testImage = '';
 
   if(document.getElementsByClassName('pop-up')) {
     var oldRoom = document.getElementsByClassName('pop-up')[0];
     oldRoom.remove();
+    console.log('deleted old');
   }
-  var popUpContainer = document.getElementsByClassName('hotel-container');
+  var popUpContainer = document.getElementsByClassName('hotel-container')[0];
   var newPopUp = document.createElement('div');
   newPopUp.className = 'pop-up';
+  popUpContainer.appendChild(newPopUp);
   var roomImage = document.createElement('img');
-  roomImage.setAttribute('src', testImage);
-  console.log(roomImage);
-  console.log(roomImage.getAttribute('src'));
+  roomImage.setAttribute('src', 'Pictures/testimage.png');
+  newPopUp.appendChild(roomImage);
   var roomNumber = document.createElement('h3');
+  roomNumber.innerText = 'some text here';
+  newPopUp.appendChild(roomNumber);
   var itemList = document.createElement('ul');
+  newPopUp.appendChild(itemList);
   var roomType = document.createElement('li');
-  var roomAmenities = documet.createElement('li');
+  roomType.innerText = 'room type here';
+  itemList.appendChild(roomType);
+  var roomAmenities = document.createElement('li');
+  roomAmenities.innerText = 'Amenities listed here';
+  itemList.appendChild(roomAmenities);
   var roomRate = document.createElement('li');
+  roomRate.innerText = 'price here';
+  itemList.appendChild(roomRate);
   var roomOccupancy = document.createElement('li');
+  roomOccupancy.innerText = 'max occupancy here';
+  itemList.appendChild(roomOccupancy);
 }
-*/
+
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
     if (this.hotelRooms.hasOwnProperty(key)) { // not sure if necessairy, shouldn't be anything in the prototype that will make issues.
