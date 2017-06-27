@@ -106,8 +106,11 @@ function displayRoom(e) {
   var roomOccupancy = document.createElement('li');
   roomOccupancy.innerText = targetRoomOccupancy;
   itemList.appendChild(roomOccupancy);
+  var amenitiesContainer = document.createElement('li');
+  amenitiesContainer.innerText = 'Amenities';
+  itemList.appendChild(amenitiesContainer);
   var roomAmenitiesList = document.createElement('ul');
-  itemList.appendChild(roomAmenitiesList);
+  amenitiesContainer.appendChild(roomAmenitiesList);
   buildTrueAmenitiesList(roomAmenitiesList, targetRoom);
 
 }
