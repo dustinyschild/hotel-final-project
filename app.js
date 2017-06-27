@@ -39,7 +39,7 @@ var roomClick1A = document.getElementById('1A');
 roomClick1A.addEventListener('click', displayRoom('1A'));
 
 function displayRoom(roomID) {
-  //displays The room
+  var oldRoom = document.getElementsByClassName('pop-up');
 }
 
 Hotel.prototype.randomOccupancy = function(){
