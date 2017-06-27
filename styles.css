@@ -1,0 +1,79 @@
+/*
+Header- font-family: 'Teko', sans-serif;
+fancy -- font-family: 'Petit Formal Script', cursive;
+normal -- font-family: 'Bubbler One', sans-serif;
+
+font color: #f7f5e6 cream
+*/
+h1{
+  font-family: 'Teko', sans-serif;
+  font-size: 4em;
+  margin: 0;
+  padding: 0;
+}
+
+html, body{
+font-family: 'Cabin', sans-serif;
+  background-color: black;
+  color: #f7f5e6;
+  height:  100%;
+  margin:  0px auto;
+  padding: 0px auto;
+
+}
+
+#logo{
+  float: left;
+  display: inline;
+}
+#wrapper {
+  height: auto;
+  min-height: 100%;
+  margin:     0px auto;
+  padding:    0px auto;
+  position: relative;
+  min-width: 320px;
+  width: 90%;
+  margin: auto;
+  height: 728;
+  background-color: none;
+  background-image: url("Pictures/buildingBackground.jpg");
+  background-repeat: no-repeat;
+  border: 1px solid none;
+  display: block;
+}
+header {
+  position: fixed;
+  margin: 0px auto;
+  padding: 0px auto;
+  background-color: none;
+  width: inherit;
+  z-index:10;
+  border: 1px solid none;
+  display: block;
+  text-align: center;
+}
+#headerNav{
+  float: right;
+}
+footer {
+  position: absolute;
+  bottom: 0px;
+
+  padding: 0px auto;
+  background-color: none;
+  width: 100%;
+  border: 1px solid none;
+  display: block;
+  text-align: center;
+  line-height: 1.5em;
+}
+li {
+  display: inline;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid none;
+}
+#backgroundPicture{
+
+}
