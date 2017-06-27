@@ -40,6 +40,38 @@ var roomClick1A = document.getElementById('1A');
 roomClick1A.addEventListener('click', function(event) {
   displayRoom(event);
 });
+var roomClick1B = document.getElementById('1B');
+roomClick1B.addEventListener('click', function(event) {
+  displayRoom(event);
+});
+var roomClick1C = document.getElementById('1C');
+roomClick1C.addEventListener('click', function(event) {
+  displayRoom(event);
+});
+var roomClick1D = document.getElementById('1D');
+roomClick1D.addEventListener('click', function(event) {
+  displayRoom(event);
+});
+var roomClick1E = document.getElementById('1E');
+roomClick1E.addEventListener('click', function(event) {
+  displayRoom(event);
+});
+var roomClick2A = document.getElementById('2A');
+roomClick2A.addEventListener('click', function(event) {
+  displayRoom(event);
+});
+var roomClick2B = document.getElementById('2B');
+roomClick2B.addEventListener('click', function(event) {
+  displayRoom(event);
+});
+var roomClick2C = document.getElementById('2C');
+roomClick2C.addEventListener('click', function(event) {
+  displayRoom(event);
+});
+var roomClick2D = document.getElementById('2D');
+roomClick2D.addEventListener('click', function(event) {
+  displayRoom(event);
+});
 
 function displayRoom(e) {
 //var testImage = '';
