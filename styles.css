@@ -59,7 +59,7 @@ font-family: 'Cabin', sans-serif;
   width: 90%;
   margin: auto;
   height: 728;
-  background-color: black;
+  background-color: lightblue;
   border: 1px solid none;
   display: block;
 }
@@ -124,6 +124,7 @@ label{
   float: right;
   border: 1px solid blue;
   width: 68%;
+  height: 600px;
 
 }
 #hotelContainerHeader{
@@ -139,22 +140,30 @@ label{
 }
 .pop-up{
   margin: auto;
-  max-width: 50%;
+  width: 25%;
   border: 1px solid red;
   position: absolute;
   top: 162px;
   right: 75px;
 }
-#roomImage{
+.pop-up img{
   margin: 0px auto;
+  width: 100%;
 }
 
-h4 {
+.pop-up h3{
   margin: 7px 7px;
 }
-ul{
-  padding: 0px
+.pop-up ul{
+padding: 0px
 }
+.pop-up li{
+display: block;
+padding: 3px;
+margin-left: 5px;
+}
+
+
 footer {
   bottom: 0px;
   padding: 0px auto;
@@ -173,7 +182,6 @@ footer {
 .relativeFooter {
   position: relative;
   top: 50px;
-
 }
 li {
   display: inline;
