@@ -37,11 +37,21 @@ Hotel.prototype.buildRooms = function(roomsList){
 };
 
 var roomClick1A = document.getElementById('1A');
-roomClick1A.addEventListener('click', displayRoom);
+roomClick1A.addEventListener('click', function(event) {
+  displayRoom(event);
+});
 
-function displayRoom() {
+function displayRoom(e) {
 //var testImage = '';
-
+  var targetImage;
+  var targetRoom = e.target.getAttribute('id');
+  for (var key in hotelA.hotelRooms){
+    if (key === targetRoom){
+      var rooms = hotelA.hotelRooms[key];
+      targetImage = hotelA.hotelRooms[key].imgSrc;
+      console.log(targetImage);
+    }
+  }
   if(document.getElementsByClassName('pop-up')) {
     var oldRoom = document.getElementsByClassName('pop-up')[0];
     oldRoom.remove();
@@ -52,7 +62,7 @@ function displayRoom() {
   newPopUp.className = 'pop-up';
   popUpContainer.appendChild(newPopUp);
   var roomImage = document.createElement('img');
-  roomImage.setAttribute('src', 'Pictures/testimage.png');
+  roomImage.setAttribute('src', targetImage);
   newPopUp.appendChild(roomImage);
   var roomNumber = document.createElement('h3');
   roomNumber.innerText = 'some text here';
@@ -96,7 +106,7 @@ function writeVancanyToLocalStorage(){
 var hotelRoomsA = [
   new Room('2A', 'Executive Suite','500.00','Pictures/execSuite.jpg',true,'10','placeholder2.svg',true,true,true,false,false,false,true)
   ,new Room('2B', 'Family Suite','300.00','Pictures/familySuite.jpg', true,'7','placeholder2.svg',true,false,true,false,false,false,true)
-  ,new Room('1A', 'Basic Economy','50.00','placeholder.jpg', true,'4','placeholder2.svg',false,false,false,false,true,false,false)
+  ,new Room('1A', 'Basic Economy','50.00','Pictures/execSuite.jpg', true,'4','placeholder2.svg',false,false,false,false,true,false,false)
   ,new Room('1B', 'Family Economy','80.00','placeholder.jpg', true,'5','placeholder2.svg',false,false,false,false,true,true,false)
   ,new Room('1C', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,true,true,false,true,false)
   ,new Room('2C', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,true,true,false,true,false)
