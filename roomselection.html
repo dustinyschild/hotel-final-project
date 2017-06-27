@@ -2,46 +2,59 @@
 
 <html>
 <head>
-  <title>Select a Room</title>
+  <title>@Your Hotel Home, Select Room</title>
   <link href="styles.css" rel="stylesheet"/>
 </head>
 
 <body>
-  <header>
-    <!--paste chucks info-->
+  <div id="wrapperBlack">
+
+  <header id="headerBlack">
+    <div id="logo">
+      <p id="logoPlaceHolderText">@ YOUR HOTEL</p>
+     </div>
+
+    <ul id="headerNav">
+      <li>HOME</li>
+      <li>SELECT ROOM</li>
+      <li>CONTACT</li>
+      <!--<li>Local Events</li>-->
+    </ul>
   </header>
 
   <aside>
-    <h3>Filter by:</h3>
+    <h3 class="asideH3">Filter by:</h3>
     <form>
       <fieldset>
         <select name="Room Type">
-          <option selected disabled>Choose room type</option>
+          <option selected disabled>Choose Room Rype</option>
           <option>Executive Suite</option>
           <option>Family Suite</option>
           <option>Basic Economy</option>
           <option>Family Economy</option>
           <option>Business Class</option>
         </select>
-        <label><input id="occupants" type="number" min="1"/># of occupants</label>
+        <label><input id="occupants" type="number" min="1"/> # of occupants</label>
       </fieldset>
       <fieldset>
         <h3>Options:</h3>
-        <label><input id="ice-cream-bar" type="checkbox"/>Ice Cream Bar</label>
-        <label><input id="wet-bar" type="checkbox"/>Wet Bar</lable>
-        <label><input id="hot-tub" type="checkbox"/>Hot Tub</label>
-        <label><input id="mini-bar" type="checkbox"/>Mini Bar</label>
-        <label><input id="fridge" type="checkbox"/>Fridge</label>
-        <label><input id="microwave"type="checkbox"/>Microwave</label>
-        <label><input id="kitchenette"type="checkbox"/>Kitchenette</label>
+        <label class="formCheckbox"> <input  id="ice-cream-bar" type="checkbox"/> Ice Cream Bar </label><br />
+        <label class="formCheckbox"> <input  id="wet-bar" type="checkbox"/> Wet Bar </lable><br />
+        <label class="formCheckbox"> <input  id="hot-tub" type="checkbox"/> Hot Tub </label><br />
+        <label class="formCheckbox"> <input  id="mini-bar" type="checkbox"/> Mini Bar </label><br />
+        <label class="formCheckbox"> <input  id="fridge" type="checkbox"/> Fridge </label><br />
+        <label class="formCheckbox"> <input  id="microwave"type="checkbox"/> Microwave </label><br />
+        <label class="formCheckbox"> <input  id="kitchenette"type="checkbox"/> Kitchenette </label><br />
       </fieldset>
     </form>
   </aside>
 
   <div class="hotel-container">
     <div class="pick-room">
-      <h3>Welcome!</h3>
-      <p>Please use the floorplan below to pick your desired room.</p>
+      <div id="welcome">
+        </div><h3>Welcome!</h3>
+        <p>Please use the floorplan below to pick your desired room.</p>
+      </div>
       <div class="rooms" id="room-one">Room1</div>
       <div class="rooms" id="room-two">Room2</div>
       <div class="rooms" id="room-three">Room3</div>
@@ -55,7 +68,9 @@
 
     <div class="pop-up">
       <h4>Room: number</h4>
-      <img src="http://www.qygjxz.com/data/out/193/4968251-random-image.gif"/>
+
+      <div class="popUpSrc"></div>
+
       <ul>
         <li>Property1</li>
         <li>Property2</li>
@@ -64,10 +79,15 @@
       </ul>
     </div>
   </div>
-  
+
   <footer>
-    <!--paste chucks info-->
+    <ul>
+      <li>PHONE: 1.800.555.5555</li>
+      <li>atyourhotel.com</li>
+      <li>123 Shady Way Ln. Iowa City, IA 52246</li>
+    </ul>
   </footer>
+</div>
   <script src="app.js"></script>
 </body>
 </html>

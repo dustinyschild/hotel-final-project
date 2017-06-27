@@ -1,9 +1,10 @@
 /*
 Header- font-family: 'Teko', sans-serif;
 fancy -- font-family: 'Petit Formal Script', cursive;
-normal -- font-family: 'Bubbler One', sans-serif;
+normal -- font-family: 'Cabin', sans-serif;
 
 font color: #f7f5e6 cream
+background color: black
 */
 h1{
   font-family: 'Teko', sans-serif;
@@ -11,7 +12,12 @@ h1{
   margin: 0;
   padding: 0;
 }
-
+#logoPlaceHolderText{
+  font-family: 'Teko', sans-serif;
+  font-size: 4em;
+  margin: 0;
+  padding: 0;
+}
 html, body{
 font-family: 'Cabin', sans-serif;
   background-color: black;
@@ -42,6 +48,22 @@ font-family: 'Cabin', sans-serif;
   border: 1px solid none;
   display: block;
 }
+#wrapperBlack {
+  height: auto;
+  min-height: 100%;
+  margin:     0px auto;
+  padding:    0px auto;
+  padding-top: 100px;
+
+  position: relative;
+  min-width: 320px;
+  width: 90%;
+  margin: auto;
+  height: 728;
+  background-color: black;
+  border: 1px solid none;
+  display: block;
+}
 header {
   position: fixed;
   margin: 0px auto;
@@ -53,8 +75,61 @@ header {
   display: block;
   text-align: center;
 }
+#headerBlack{
+  background-color: yellow;
+  top: 0
+
+}
 #headerNav{
   float: right;
+}
+aside{
+  float: left;
+  width: 30%;
+  background-color: orange
+}
+form {
+  padding: 15px;
+
+}
+.asideH3{
+  padding-left: 15px;
+
+}
+select {
+  width: 170px;
+  display: inline-block;
+  margin: 4px 0px;
+
+
+}
+#occupants{
+  width: 50px;
+
+}
+label{
+  margin: 2px 0px;
+  display: inline-block;
+}
+.formCheckbox {
+
+}
+
+
+.hotel-container{
+  float: right;
+  border: 1px solid blue;
+  width: 67%;
+}
+
+.pop-up{
+  margin: auto;
+  max-width: 50%;
+  border: 1px solid red;
+}
+.popUpSrc{
+  background-image: url("Pictures/svgTest1.svg");
+
 }
 footer {
   position: absolute;
