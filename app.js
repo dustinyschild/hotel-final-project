@@ -39,7 +39,19 @@ var roomClick1A = document.getElementById('1A');
 roomClick1A.addEventListener('click', displayRoom('1A'));
 
 function displayRoom(roomID) {
-  var oldRoom = document.getElementsByClassName('pop-up');
+  if(document.getElementsByClassName('pop-up')) {
+    var oldRoom = document.getElementsByClassName('pop-up')[0];
+    oldRoom.remove();
+  }
+  var popUpContainer = document.getElementsByClassName('hotel-container');
+  var newPopUp = document.createElement('div');
+  var roomImage = document.createElement('img');
+  var roomNumber = document.createElement('h3');
+  var itemList = document.createElement('ul');
+  var roomType = document.createElement('li');
+  var roomAmenities = documet.createElement('li');
+  var roomRate = document.createElement('li');
+  var roomOccupancy = document.createElement('li');
 }
 
 Hotel.prototype.randomOccupancy = function(){
