@@ -36,7 +36,7 @@ Hotel.prototype.buildRooms = function(roomsList){
 };
 
 Hotel.prototype.displayRoom = function(e) {
-  var targetRoom = e.path[1].getAttribute('id');
+  var targetRoom = e.target.getAttribute('id');
   var targetImage = getTargetHotelRommProperty(targetRoom, 'imgSrc', this);
   var targetRoomType = getTargetHotelRommProperty(targetRoom, 'roomType', this);
   var targetRoomRate = getTargetHotelRommProperty(targetRoom, 'roomRate', this);
