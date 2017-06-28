@@ -26,6 +26,7 @@ function Hotel(hotelName,hotelAddress,hotelImgSrc,hotelLayoutSrc, roomsList){
 
   this.buildRooms(roomsList);
   this.randomOccupancy();
+  this.writeVancanyToLocalStorage();
 }
 
 Hotel.prototype.buildRooms = function(roomsList){
@@ -124,9 +125,20 @@ Hotel.prototype.randomOccupancy = function(){
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
   //what it says on the tin.  Update occupancy in this.hotelRooms from local storage -- remember to not run randomOccupancy method automatically if there are values in local storage.
 };
-function writeVancanyToLocalStorage(){
-  // use this to write our occupanies to local storage
-}
+
+Hotel.prototype.writeVancanyToLocalStorage = function(){
+  var vacancy = {};
+  for (var key in this.hotelRooms){
+    var obj = this.hotelRooms[key];
+    for (var property in obj) {
+      if(property === 'isVacant'){
+        vacancy[key] = obj[property];
+      }
+    }
+  }
+  window.localStorage.roomVacancy = JSON.stringify(vacancy);
+  console.log(vacancy);
+};
 
 var hotelRoomsA = [
   new Room('2A', 'Executive Suite','500.00','Pictures/execSuite.jpg',true,'10','placeholder2.svg','Ice Cream Bar','In Room Wet Bar','Hot Tub',false,false,false,'Full Feature Kitchenette')
