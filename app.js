@@ -76,6 +76,10 @@ Hotel.prototype.displayRoom = function(e) {
   var roomAmenitiesList = document.createElement('ul');
   amenitiesContainer.appendChild(roomAmenitiesList);
   buildTrueAmenitiesList(roomAmenitiesList, targetRoom, this);
+  var newReserve = document.createElement('a');
+  newReserve.setAttribute('class','btn');
+  newReserve.innerText = 'Reserve this Room';
+  newPopUp.appendChild(newReserve);
 };
 
 function getTargetHotelRommProperty(targetRoom, propertyName, here) {
