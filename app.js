@@ -41,8 +41,8 @@ Hotel.prototype.displayRoom = function(e) {
   var targetRoomType = getTargetHotelRommProperty(targetRoom, 'roomType', this);
   var targetRoomRate = getTargetHotelRommProperty(targetRoom, 'roomRate', this);
   var targetRoomOccupancy = getTargetHotelRommProperty(targetRoom, 'allowedOccupancy', this);
-  if(document.getElementsByClassName('pop-up')) {
-    var oldRoom = document.getElementsByClassName('pop-up')[0];
+  var oldRoom = document.getElementsByClassName('pop-up')[0];
+  if(oldRoom){
     oldRoom.remove();
     console.log('deleted old');
   }
