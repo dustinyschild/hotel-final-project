@@ -36,8 +36,7 @@ Hotel.prototype.buildRooms = function(roomsList){
 };
 
 Hotel.prototype.displayRoom = function(e) {
-//var testImage = '';
-  var targetRoom = e.target.getAttribute('id');
+  var targetRoom = e.path[1].getAttribute('id');
   var targetImage = getTargetHotelRommProperty(targetRoom, 'imgSrc', this);
   var targetRoomType = getTargetHotelRommProperty(targetRoom, 'roomType', this);
   var targetRoomRate = getTargetHotelRommProperty(targetRoom, 'roomRate', this);
@@ -174,6 +173,7 @@ window.addEventListener('load', onLoad);
 
 var roomClick1A = document.getElementById('1A');
 roomClick1A.addEventListener('click', function(event) {
+  console.log(event);
   hotelA.displayRoom(event);
 });
 var roomClick1B = document.getElementById('1B');
