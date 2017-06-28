@@ -225,6 +225,9 @@ function filterRooms(){
     if (roomTypeSelected === hotelA.hotelRooms[key].roomType){
       roomsAvailable.push(key);
       console.log('room pushed to array');
+      var availableRooms = document.getElementById(key);
+      availableRooms.style.color = '"yellow"';
+      console.log(availableRooms.style.color);
     }
   }
   console.log(roomsAvailable);
