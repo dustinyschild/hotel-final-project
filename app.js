@@ -145,7 +145,6 @@ function onLoad(){
   }
 }
 
-
 var hotelRoomsA = [
   new Room('2A', 'Executive Suite','500.00','Pictures/execSuite.jpg',true,'10','placeholder2.svg','Ice Cream Bar','In Room Wet Bar','Hot Tub',false,false,false,'Full Feature Kitchenette')
   ,new Room('2B', 'Family Suite','300.00','Pictures/familySuite.jpg', true,'7','placeholder2.svg','Ice Cream Bar',false,'Hot Tub',false,false,false,'Full Feature Kitchenette')
