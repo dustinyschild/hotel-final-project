@@ -210,18 +210,20 @@ var submitClick = document.getElementById('submit');
 submitClick.addEventListener('click', function(event){
   filterRooms();
 });
-
+var roomsAvailable = [];
 function filterRooms(){
   event.preventDefault();
-  var roomsAvailable = [];
   var dropdownBox = document.getElementById('dropdown-box');
-
   var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
   console.log(roomTypeSelected);
-/*
-  for(var roomsAvailable in roomTypeSelected){
-    if (roomTypeSelected.selected.value){
-      console.log('value: ' + roomTypeSelected.selected.value);
+  //console.log(hotelA.hotelRooms[key]);
+  for (var key in hotelA.hotelRooms){
+    console.log(key);
+    console.log(hotelA.hotelRooms[key].roomType);
+    if ( roomTypeSelected === hotelA.hotelRooms[key].roomType){
+      roomsAvailable.push(key);
+      console.log('room pushed to array');
     }
-  }*/
+  }
+  console.log(roomsAvailable);
 }
