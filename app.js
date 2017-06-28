@@ -213,5 +213,15 @@ submitClick.addEventListener('click', function(event){
 
 function filterRooms(){
   event.preventDefault();
-  console.log('submit click');
+  var roomsAvailable = [];
+  var dropdownBox = document.getElementById('dropdown-box');
+
+  var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
+  console.log(roomTypeSelected);
+/*
+  for(var roomsAvailable in roomTypeSelected){
+    if (roomTypeSelected.selected.value){
+      console.log('value: ' + roomTypeSelected.selected.value);
+    }
+  }*/
 }

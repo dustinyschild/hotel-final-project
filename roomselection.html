@@ -28,13 +28,13 @@
     <h3 class="asideH3">Select Accomidations:</h3>
     <form>
       <fieldset>
-        <select name="Room Type">
+        <select id="dropdown-box" name="Room Type">
           <option selected disabled>Choose room type</option>
-          <option class="room-type-options">Executive Suite</option>
-          <option class="room-type-options">Family Suite</option>
-          <option class="room-type-options">Basic Economy</option>
-          <option class="room-type-options">Family Economy</option>
-          <option class="room-type-options">Business Class</option>
+          <option class="room-type-options" value="Executive Suite">Executive Suite</option>
+          <option class="room-type-options" value="Family Suite">Family Suite</option>
+          <option class="room-type-options" value="Basic Economy">Basic Economy</option>
+          <option class="room-type-options"value="Family Economy">Family Economy</option>
+          <option class="room-type-options" value="Business Class">Business Class</option>
         </select>
         <label><input id="occupants" type="number" min="1"/> # of occupants</label>
         <h3>Options:</h3>
