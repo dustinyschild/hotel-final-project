@@ -96,12 +96,18 @@ h3{
 }
 /*------------------Left Aside------------------*/
 
-aside{
+.aside{
   float: left;
   width: 25%;
-  background-color: #f7f5e6;
   color: black;
-  height: 500px
+  height: 400px;
+  background: repeating-linear-gradient(
+    -90deg,
+    #f7f5e6,
+    #f7f5e6 2px,
+    #f3f0d8 2px,
+    #f3f0d8 20px
+  );
 }
 form {
   padding: 15px;
@@ -135,8 +141,9 @@ label{
 .hotel-container{
   float: right;
   border: 1px solid none;
-  width: 72%;
+  width: 75%;
   height: 600px;
+  background-color: white;
 
 }
 #hotelContainerHeader{
