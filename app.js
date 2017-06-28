@@ -121,7 +121,15 @@ Hotel.prototype.randomOccupancy = function(){
 };
 
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
-  //what it says on the tin.  Update occupancy in this.hotelRooms from local storage -- remember to not run randomOccupancy method automatically if there are values in local storage.
+  var vacancy = JSON.parse(window.localStorage.roomVacancy);
+  for(var key in this.hotelRooms){
+    var obj = this.hotelRooms[key];
+    for (var property in obj) {
+      if(property === 'isVacant'){
+        obj[property] = vacancy[key];
+      }
+    }
+  }
 };
 
 Hotel.prototype.writeVancanyToLocalStorage = function(){
@@ -135,13 +143,15 @@ Hotel.prototype.writeVancanyToLocalStorage = function(){
     }
   }
   window.localStorage.roomVacancy = JSON.stringify(vacancy);
-  console.log(vacancy);
 };
 
 function onLoad(){
   if(!window.localStorage.roomVacancy){
     hotelA.randomOccupancy();
     hotelA.writeVancanyToLocalStorage();
+  }
+  else{
+    hotelA.getOccupancyFromLocalStorage();
   }
 }
 
