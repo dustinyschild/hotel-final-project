@@ -25,8 +25,6 @@ function Hotel(hotelName,hotelAddress,hotelImgSrc,hotelLayoutSrc, roomsList){
   this.hotelRooms = {};
 
   this.buildRooms(roomsList);
-  this.randomOccupancy();
-  this.writeVancanyToLocalStorage();
 }
 
 Hotel.prototype.buildRooms = function(roomsList){
@@ -140,6 +138,14 @@ Hotel.prototype.writeVancanyToLocalStorage = function(){
   console.log(vacancy);
 };
 
+function onLoad(){
+  if(!window.localStorage.roomVacancy){
+    hotelA.randomOccupancy();
+    hotelA.writeVancanyToLocalStorage();
+  }
+}
+
+
 var hotelRoomsA = [
   new Room('2A', 'Executive Suite','500.00','Pictures/execSuite.jpg',true,'10','placeholder2.svg','Ice Cream Bar','In Room Wet Bar','Hot Tub',false,false,false,'Full Feature Kitchenette')
   ,new Room('2B', 'Family Suite','300.00','Pictures/familySuite.jpg', true,'7','placeholder2.svg','Ice Cream Bar',false,'Hot Tub',false,false,false,'Full Feature Kitchenette')
@@ -161,6 +167,8 @@ hotelSvg.addEventListener('load',function() {
   svgDoc = hotelSvg.contentDocument;
   alert('SVG contentDocument Loaded!');
 });
+
+window.addEventListener('load', onLoad);
 
 var roomClick1A = document.getElementById('1A');
 roomClick1A.addEventListener('click', function(event) {
