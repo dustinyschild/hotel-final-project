@@ -233,10 +233,12 @@ label{
 .pop-up{
   margin: auto;
   width: 25%;
-  border: 1px solid red;
   position: absolute;
   top: 162px;
   right: 75px;
+  padding: 10px;
+  background-color: #8c6951;
+  box-shadow: 15px 15px 45px 0px rgba(0,0,0,0.75);
 }
 .pop-up img{
   margin: 0px auto;
