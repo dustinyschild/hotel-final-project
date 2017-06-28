@@ -36,14 +36,13 @@ Hotel.prototype.buildRooms = function(roomsList){
 };
 
 Hotel.prototype.displayRoom = function(e) {
-//var testImage = '';
   var targetRoom = e.target.getAttribute('id');
   var targetImage = getTargetHotelRommProperty(targetRoom, 'imgSrc', this);
   var targetRoomType = getTargetHotelRommProperty(targetRoom, 'roomType', this);
   var targetRoomRate = getTargetHotelRommProperty(targetRoom, 'roomRate', this);
   var targetRoomOccupancy = getTargetHotelRommProperty(targetRoom, 'allowedOccupancy', this);
-  if(document.getElementsByClassName('pop-up')) {
-    var oldRoom = document.getElementsByClassName('pop-up')[0];
+  var oldRoom = document.getElementsByClassName('pop-up')[0];
+  if(oldRoom){
     oldRoom.remove();
     console.log('deleted old');
   }
@@ -156,62 +155,56 @@ function onLoad(){
 }
 
 var hotelRoomsA = [
-  new Room('2A', 'Executive Suite','500.00','Pictures/execSuite.jpg',true,'10','placeholder2.svg','Ice Cream Bar','In Room Wet Bar','Hot Tub',false,false,false,'Full Feature Kitchenette')
-  ,new Room('2B', 'Family Suite','300.00','Pictures/familySuite.jpg', true,'7','placeholder2.svg','Ice Cream Bar',false,'Hot Tub',false,false,false,'Full Feature Kitchenette')
-  ,new Room('1A', 'Basic Economy','50.00','Pictures/execSuite.jpg', true,'4','placeholder2.svg',false,false,false,false,'Refrigerator',false,false)
-  ,new Room('1B', 'Family Economy','80.00','placeholder.jpg', true,'5','placeholder2.svg',false,false,false,false,'Refrigerator','Microwave',false)
-  ,new Room('1C', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
-  ,new Room('2C', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
-  ,new Room('1D', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
-  ,new Room('2D', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
-  ,new Room('1E', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
+  new Room('A2', 'Executive Suite','500.00','Pictures/execSuite.jpg',true,'10','placeholder2.svg','Ice Cream Bar','In Room Wet Bar','Hot Tub',false,false,false,'Full Feature Kitchenette')
+  ,new Room('B2', 'Family Suite','300.00','Pictures/familySuite.jpg', true,'7','placeholder2.svg','Ice Cream Bar',false,'Hot Tub',false,false,false,'Full Feature Kitchenette')
+  ,new Room('A1', 'Basic Economy','50.00','Pictures/execSuite.jpg', true,'4','placeholder2.svg',false,false,false,false,'Refrigerator',false,false)
+  ,new Room('B1', 'Family Economy','80.00','placeholder.jpg', true,'5','placeholder2.svg',false,false,false,false,'Refrigerator','Microwave',false)
+  ,new Room('C1', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
+  ,new Room('C2', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
+  ,new Room('D1', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
+  ,new Room('D2', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
+  ,new Room('E1', 'Business Class','100.00','placeholder.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
 ];
 
 var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
+
 console.log(hotelA);
-
-var hotelSvg = document.getElementById('hotelPlan'); //Won't work because chrome is protecting me from myself... thanks chrome.
-var svgDoc;
-hotelSvg.addEventListener('load',function() {
-  svgDoc = hotelSvg.contentDocument;
-  alert('SVG contentDocument Loaded!');
-});
-
 window.addEventListener('load', onLoad);
 
-var roomClick1A = document.getElementById('1A');
+var roomClick1A = document.getElementById('A1');
 roomClick1A.addEventListener('click', function(event) {
+  console.log(event);
   hotelA.displayRoom(event);
 });
-var roomClick1B = document.getElementById('1B');
+var roomClick1B = document.getElementById('B1');
 roomClick1B.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
-var roomClick1C = document.getElementById('1C');
+var roomClick1C = document.getElementById('C1');
 roomClick1C.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
-var roomClick1D = document.getElementById('1D');
+var roomClick1D = document.getElementById('D1');
 roomClick1D.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
-var roomClick1E = document.getElementById('1E');
+var roomClick1E = document.getElementById('E1');
 roomClick1E.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
-var roomClick2A = document.getElementById('2A');
+var roomClick2A = document.getElementById('A2');
 roomClick2A.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
-var roomClick2B = document.getElementById('2B');
+var roomClick2B = document.getElementById('B2');
 roomClick2B.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
-var roomClick2C = document.getElementById('2C');
+var roomClick2C = document.getElementById('C2');
 roomClick2C.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
-var roomClick2D = document.getElementById('2D');
+var roomClick2D = document.getElementById('D2');
 roomClick2D.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
