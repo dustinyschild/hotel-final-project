@@ -205,3 +205,13 @@ var roomClick1C = document.getElementById('floorC');
 roomClick1C.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
+
+var submitClick = document.getElementById('submit');
+submitClick.addEventListener('click', function(event){
+  filterRooms();
+});
+
+function filterRooms(){
+  event.preventDefault();
+  console.log('submit click');
+}
