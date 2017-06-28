@@ -210,6 +210,7 @@ var submitClick = document.getElementById('submit');
 submitClick.addEventListener('click', function(event){
   filterRooms();
 });
+
 var roomsAvailable = [];
 function filterRooms(){
   event.preventDefault();
@@ -217,10 +218,11 @@ function filterRooms(){
   var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
   console.log(roomTypeSelected);
   //console.log(hotelA.hotelRooms[key]);
+  roomsAvailable = [];
   for (var key in hotelA.hotelRooms){
     console.log(key);
     console.log(hotelA.hotelRooms[key].roomType);
-    if ( roomTypeSelected === hotelA.hotelRooms[key].roomType){
+    if (roomTypeSelected === hotelA.hotelRooms[key].roomType){
       roomsAvailable.push(key);
       console.log('room pushed to array');
     }
