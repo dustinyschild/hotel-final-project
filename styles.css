@@ -210,7 +210,19 @@ label{
 
 /*------------------Blue Print------------------*/
 
-#hotelPlan{
+#floorA{
+  padding: 40px 0px 15px 200px;
+  height: 400px;
+  float: left;
+}
+
+#floorB{
+  padding: 40px 0px 15px 200px;
+  height: 400px;
+  float: left;
+}
+
+#floorC{
   padding: 40px 0px 15px 200px;
   height: 400px;
   float: left;
