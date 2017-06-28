@@ -170,7 +170,7 @@ var hotelRoomsA = [
 var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
 console.log(hotelA);
 
-var hotelSvg = document.getElementById('svg'); //Won't work because chrome is protecting me from myself... thanks chrome.
+var hotelSvg = document.getElementById('hotelPlan'); //Won't work because chrome is protecting me from myself... thanks chrome.
 var svgDoc;
 hotelSvg.addEventListener('load',function() {
   svgDoc = hotelSvg.contentDocument;
