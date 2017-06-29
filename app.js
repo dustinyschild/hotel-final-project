@@ -212,6 +212,7 @@ submitClick.addEventListener('click', function(event){
 });
 
 var roomsAvailable = [];
+var roomsNotAvailable = [];
 function filterRooms(){
   event.preventDefault();
   var dropdownBox = document.getElementById('dropdown-box');
@@ -219,15 +220,19 @@ function filterRooms(){
   console.log(roomTypeSelected);
   //console.log(hotelA.hotelRooms[key]);
   roomsAvailable = [];
+  roomsNotAvailable = [];
   for (var key in hotelA.hotelRooms){
-    console.log(key);
-    console.log(hotelA.hotelRooms[key].roomType);
     if (roomTypeSelected === hotelA.hotelRooms[key].roomType){
       roomsAvailable.push(key);
-      console.log('room pushed to array');
       var availableRooms = document.getElementById(key);
       availableRooms.style.fill = 'yellow';
       console.log(availableRooms.style.color);
+    }
+    if (roomTypeSelected !== hotelA.hotelRooms[key].roomType) {
+      roomsNotAvailable.push(key);
+      var unavailableRooms = document.getElementById(key);
+      unavailableRooms.style.fill = '#919191';
+      console.log(roomsNotAvailable);
     }
   }
   console.log(roomsAvailable);
