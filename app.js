@@ -99,7 +99,6 @@ Hotel.prototype.displayRoom = function(e) {
   var oldRoom = document.getElementsByClassName('pop-up')[0];
   if(oldRoom){
     oldRoom.remove();
-    console.log('deleted old');
   }
   if(validTargets.indexOf(targetRoom) < 0){
     return;
@@ -281,6 +280,15 @@ dropdown.addEventListener('change', function(){
   filterRooms();
   checkBoxFilter(roomsAvailable);
 });
+
+var checkboxes = (document.querySelectorAll('.checkBox'));
+
+checkboxes.forEach(function(item){
+  item.addEventListener('click', function(){
+    alert('holy shite');
+  });
+});
+
 /*
 var checkBox = document.getElementById('formCheckbox');
 checkBox.addEventListener('checked', function(event) {
