@@ -18,6 +18,7 @@ function createReservButtonListener(){
     hotelA.updateOccupancy(event);
     hotelA.writeVancanyToLocalStorage();
     hotelA.displayReservationMessage();
+    filterRooms();
   });
 }
 
@@ -249,6 +250,7 @@ submitClick.addEventListener('click', function(event){
 
 var roomsAvailable = [];
 var roomsNotAvailable = [];
+
 function filterRooms(){
   event.preventDefault();
   var dropdownBox = document.getElementById('dropdown-box');
