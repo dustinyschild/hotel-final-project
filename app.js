@@ -1,5 +1,15 @@
 'use strict';
 
+var reserveButton;
+
+function createReservButtonListener(){
+  reserveButton = document.getElementsByClassName('btn')[0];
+  reserveButton.addEventListener('click', function reserveButtonHandler(event){
+    hotelA.updateOccupancy(event);
+    hotelA.writeVancanyToLocalStorage();
+  });
+}
+
 function Room(roomId,roomType,roomRate,imgSrc,isVacant,allowedOccupancy,roomLayoutSrc,iceCreamBar,wetBar,hotTub,miniBar,fridge,microwave,kitchenette){
   this.roomId = roomId;
   this.roomType = roomType;
@@ -44,7 +54,6 @@ Hotel.prototype.displayRoom = function(e) {
   var oldRoom = document.getElementsByClassName('pop-up')[0];
   if(oldRoom){
     oldRoom.remove();
-    console.log('deleted old');
   }
   if(!targetRoom || targetRoom === 'floorA' || targetRoom === 'floorB' || targetRoom === 'floorC'){
     return;
@@ -78,8 +87,10 @@ Hotel.prototype.displayRoom = function(e) {
   buildTrueAmenitiesList(roomAmenitiesList, targetRoom, this);
   var newReserve = document.createElement('a');
   newReserve.setAttribute('class','btn');
+  newReserve.setAttribute('name',targetRoom);
   newReserve.innerText = 'Reserve this Room';
   newPopUp.appendChild(newReserve);
+  createReservButtonListener();
 };
 
 function getTargetHotelRommProperty(targetRoom, propertyName, here) {
@@ -151,6 +162,11 @@ Hotel.prototype.writeVancanyToLocalStorage = function(){
   window.localStorage.roomVacancy = JSON.stringify(vacancy);
 };
 
+Hotel.prototype.updateOccupancy = function(e){
+  console.log(e.target.name);
+  //updates the occupancy
+};
+
 function onLoad(){
   if(!window.localStorage.roomVacancy){
     hotelA.randomOccupancy();
@@ -193,12 +209,10 @@ var hotelRoomsA = [
 
 var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
 
-console.log(hotelA);
 window.addEventListener('load', onLoad);
 
 var roomClick1A = document.getElementById('floorA');
 roomClick1A.addEventListener('click', function(event) {
-  console.log(event);
   hotelA.displayRoom(event);
 });
 var roomClick1B = document.getElementById('floorB');
