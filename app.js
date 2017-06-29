@@ -331,11 +331,11 @@ function checkBoxFilter(roomsAvailable) {
       property === 'microwave' ||
       property === 'kitchenette') {
         if (hotelA.hotelRooms[item][property] && amenitiesAvailable.indexOf(hotelA.hotelRooms[item][property]) < 0){
-          amenitiesAvailable.push(hotelA.hotelRooms[item][property]);
+          amenitiesAvailable.push(property);
+          console.log(property);
         }
       }
     }
   });
-
   console.log(amenitiesAvailable);
 }
