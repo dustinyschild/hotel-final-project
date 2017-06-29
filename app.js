@@ -187,7 +187,8 @@ Hotel.prototype.updateOccupancy = function(e){
 };
 
 Hotel.prototype.displayReservationMessage = function(){
-  // find and hide the button
+  var button = document.getElementsByClassName('btn')[0];
+  button.style.display = 'none';
   //display the Your room has been reserved! message
 };
 
