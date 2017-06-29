@@ -226,7 +226,7 @@ function filterRooms(){
       roomsAvailable.push(key);
       console.log('room pushed to array');
       var availableRooms = document.getElementById(key);
-      availableRooms.style.color = '"yellow"';
+      availableRooms.style.fill = 'yellow';
       console.log(availableRooms.style.color);
     }
   }
