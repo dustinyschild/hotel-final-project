@@ -236,4 +236,19 @@ function filterRooms(){
     }
   }
   console.log(roomsAvailable);
+  //check true or false for the amenities
+  var iceCreamBarBox = document.getElementById('ice-cream-bar');
+  var wetBarBox = document.getElementById('wet-bar');
+  var hotTubBox = document.getElementById('hot-tub');
+  var miniBarBox = document.getElementById('mini-bar');
+  var fridgeBox = document.getElementById('fridge');
+  var microwaveBox = document.getElementById('microwave');
+  var kitchenetteBox = document.getElementById('kitchenette');
+  console.log(iceCreamBarBox);
+  console.log(wetBarBox);
+  console.log(hotTubBox);
+  console.log(miniBarBox);
+  console.log(fridgeBox);
+  console.log(microwaveBox);
+  console.log(kitchenetteBox);
 }
