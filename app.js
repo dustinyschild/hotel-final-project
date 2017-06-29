@@ -132,12 +132,20 @@ Hotel.prototype.displayRoom = function(e) {
   var roomAmenitiesList = document.createElement('ul');
   amenitiesContainer.appendChild(roomAmenitiesList);
   buildTrueAmenitiesList(roomAmenitiesList, targetRoom, this);
-  var newReserve = document.createElement('a');
-  newReserve.setAttribute('class','btn');
-  newReserve.setAttribute('name',targetRoom);
-  newReserve.innerText = 'Reserve this Room';
-  newPopUp.appendChild(newReserve);
-  createReservButtonListener();
+  if(this.hotelRooms[targetRoom].isVacant){
+    var newReserve = document.createElement('a');
+    newReserve.setAttribute('class','btn');
+    newReserve.setAttribute('name',targetRoom);
+    newReserve.innerText = 'Reserve this Room';
+    newPopUp.appendChild(newReserve);
+    createReservButtonListener();
+  }
+  else{
+    var popUp = document.getElementsByClassName('pop-up')[0];
+    var message = document.createElement('h4');
+    message.innerText = 'Sorry, This Room is Unavailable.';
+    popUp.appendChild(message);
+  }
 };
 
 Hotel.prototype.randomOccupancy = function(){
