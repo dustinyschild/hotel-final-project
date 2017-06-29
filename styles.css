@@ -9,7 +9,9 @@ submit button: #8c6951 brown
 aside border: #4fd6cf turquoise
 */
 /*------------------Body------------------*/
-
+*{
+  outline: 1px solid red;
+}
 
 html, body{
 font-family: 'Cabin', sans-serif;
@@ -114,11 +116,11 @@ h3{
 
 .aside{
   float: left;
-  position: relative;
   width: 23%;
   min-width: 200px;
   color: black;
   height: 400px;
+  top:100px;
   border-right: 10px solid #4fd6cf;
   box-sizing: border-box;
   background: repeating-linear-gradient(
@@ -207,14 +209,12 @@ input{
 /*------------------Right Room Picker Div------------------*/
 
 .hotel-container{
-  float: right;
+  float: left;
   border: 1px solid none;
   width: 77%;
   min-height: 100%;
   background-color: rgba(255, 255, 255, .8);
   position: relative;
-  text-align: justify;
-  font-size: .01;
 }
 .hotel-container:before {
     content: '';
@@ -354,9 +354,42 @@ li {
   padding: 20px;
   border: 1px solid none;
 }
+/*------------------Media Queries------------------*/
 
 @media only screen and (max-width: 500px) {
     body {
         background-color: lightblue;
     }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 501px) {
+    body {
+        background-color: lightgreen;
+    }
+    #wrapper {
+        width: 100%;
+      }
+    #wrapperBlack {
+        width: 100%;
+      }
+    .hotel-container{
+        width: 50%;
+      }
+      .hotel-container:before {
+          content: none;
+          position: absolute;
+          top: 0; right: 0;
+          border-top: 100px solid black;
+          border-left: 100px solid white;
+          width: 0;
+      }
+      .pop-up{
+        width: 20%;
+        right:0px;
+      }
+      .aside{
+        width: 30%;
+
+
+
 }
