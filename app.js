@@ -267,15 +267,21 @@ window.addEventListener('click', function(event){
 
 var submitClick = document.getElementById('submit');
 submitClick.addEventListener('click', function(event){
+  event.preventDefault();
   filterRooms();
-   var checkBox = document.addEvent
+  checkBoxFilter(roomsAvailable);
 });
+/*
+var checkBox = document.getElementById('formCheckbox');
+checkBox.addEventListener('checked', function(event) {
+  console.log('box checked');
 
+});
+*/
 var roomsAvailable = [];
 var roomsNotAvailable = [];
 
 function filterRooms(){
-  event.preventDefault();
   var dropdownBox = document.getElementById('dropdown-box');
   var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
   roomsAvailable = [];
@@ -292,7 +298,12 @@ function filterRooms(){
       unavailableRooms.style.fill = '#919191';
     }
   }
-  //check true or false for the amenities
+  console.log(roomsAvailable);
+  return roomsAvailable;
+}
+  //buid array to hold possible room amenities for selected room type
+function checkBoxFilter(roomsAvailable) {
+  console.log('filter with checkboxes');
   var iceCreamBarBox = document.getElementById('ice-cream-bar');
   var wetBarBox = document.getElementById('wet-bar');
   var hotTubBox = document.getElementById('hot-tub');
@@ -300,11 +311,36 @@ function filterRooms(){
   var fridgeBox = document.getElementById('fridge');
   var microwaveBox = document.getElementById('microwave');
   var kitchenetteBox = document.getElementById('kitchenette');
-  console.log(iceCreamBarBox.checked);
-  console.log(wetBarBox.checked);
-  console.log(hotTubBox);
-  console.log(miniBarBox);
-  console.log(fridgeBox);
-  console.log(microwaveBox);
-  console.log(kitchenetteBox);
+
+  var amenitiesAvailable = [];
+  var i = 0;
+  roomsAvailable.forEach(function(){
+    var obj = hotelA.hotelRooms[roomsAvailable[i]];
+    console.log(obj);
+    for (var property in obj) {
+      console.log(obj[property]);
+      if (property === 'iceCreamBar' ||
+      property === 'wetBar' ||
+      property === 'hotTub' ||
+      property === 'miniBar' ||
+      property === 'fridge' ||
+      property === 'microwave' ||
+      property === 'kitchenette') {
+        if (obj[property]){
+          amenitiesAvailable.push(obj[property]);
+        }
+      }
+      i++;
+      /*
+      for (var property in obj) {
+        console.log('check thru properties of obj');
+        amenitiesAvailable.push(property);
+        console.log(amenitiesAvailable);
+      //console.log(roomsAvailable);
+      //console.log(hotelA.hotelRooms[roomsAvailable].iceCreamBar);
+      }
+      */
+    }
+  });
+  console.log(amenitiesAvailable);
 }
