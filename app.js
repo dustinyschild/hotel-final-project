@@ -320,12 +320,9 @@ function checkBoxFilter(roomsAvailable) {
   var kitchenetteBox = document.getElementById('kitchenette');
 */
   var amenitiesAvailable = [];
-  var i = 0;
-  roomsAvailable.forEach(function(){
-    var obj = hotelA.hotelRooms[roomsAvailable[i]];
-    console.log(obj);
-    for (var property in obj) {
-      console.log(obj[property]);
+  roomsAvailable.forEach(function(item){
+    console.log(hotelA.hotelRooms[item]);
+    for (var property in hotelA.hotelRooms[item]){
       if (property === 'iceCreamBar' ||
       property === 'wetBar' ||
       property === 'hotTub' ||
@@ -333,11 +330,10 @@ function checkBoxFilter(roomsAvailable) {
       property === 'fridge' ||
       property === 'microwave' ||
       property === 'kitchenette') {
-        if (obj[property]){
-          amenitiesAvailable.push(obj[property]);
+        if (hotelA.hotelRooms[item][property] && amenitiesAvailable.indexOf(hotelA.hotelRooms[item][property]) < 0){
+          amenitiesAvailable.push(hotelA.hotelRooms[item][property]);
         }
       }
-      i++;
     }
   });
 
