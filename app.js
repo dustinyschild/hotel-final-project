@@ -104,7 +104,7 @@ Hotel.prototype.displayRoom = function(e) {
   var newPopUp = document.createElement('div');
   newPopUp.className = 'pop-up';
   if(e.path[3].id === 'floorC'){
-    newPopUp.style.right = '400px';
+    newPopUp.style.right = '52%';
   }
   popUpContainer.appendChild(newPopUp);
   var roomImage = document.createElement('img');
