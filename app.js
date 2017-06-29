@@ -217,8 +217,6 @@ function filterRooms(){
   event.preventDefault();
   var dropdownBox = document.getElementById('dropdown-box');
   var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
-  console.log(roomTypeSelected);
-  //console.log(hotelA.hotelRooms[key]);
   roomsAvailable = [];
   roomsNotAvailable = [];
   for (var key in hotelA.hotelRooms){
@@ -226,16 +224,13 @@ function filterRooms(){
       roomsAvailable.push(key);
       var availableRooms = document.getElementById(key);
       availableRooms.style.fill = 'yellow';
-      console.log(availableRooms.style.color);
     }
     if (roomTypeSelected !== hotelA.hotelRooms[key].roomType) {
       roomsNotAvailable.push(key);
       var unavailableRooms = document.getElementById(key);
       unavailableRooms.style.fill = '#919191';
-      console.log(roomsNotAvailable);
     }
   }
-  console.log(roomsAvailable);
   //check true or false for the amenities
   var iceCreamBarBox = document.getElementById('ice-cream-bar');
   var wetBarBox = document.getElementById('wet-bar');
@@ -244,8 +239,8 @@ function filterRooms(){
   var fridgeBox = document.getElementById('fridge');
   var microwaveBox = document.getElementById('microwave');
   var kitchenetteBox = document.getElementById('kitchenette');
-  console.log(iceCreamBarBox);
-  console.log(wetBarBox);
+  console.log(iceCreamBarBox.checked);
+  console.log(wetBarBox.checked);
   console.log(hotTubBox);
   console.log(miniBarBox);
   console.log(fridgeBox);
