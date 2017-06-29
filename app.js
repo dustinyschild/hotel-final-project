@@ -2,12 +2,54 @@
 
 var reserveButton;
 
+function onLoad(){
+  if(!window.localStorage.roomVacancy){
+    hotelA.randomOccupancy();
+    hotelA.writeVancanyToLocalStorage();
+  }
+  else{
+    hotelA.getOccupancyFromLocalStorage();
+  }
+}
+
 function createReservButtonListener(){
   reserveButton = document.getElementsByClassName('btn')[0];
   reserveButton.addEventListener('click', function reserveButtonHandler(event){
     hotelA.updateOccupancy(event);
     hotelA.writeVancanyToLocalStorage();
   });
+}
+
+function getTargetHotelRommProperty(targetRoom, propertyName, here) {
+  for (var key in here.hotelRooms){
+    if (key === targetRoom){
+      var target = here.hotelRooms[key][propertyName];
+    }
+  }
+  return target;
+}
+
+function buildTrueAmenitiesList(container, targetRoom, here) {
+  for (var key in here.hotelRooms){
+    if (key === targetRoom){
+      var obj = here.hotelRooms[key];
+      for (var property in obj) {
+        if (property === 'iceCreamBar' ||
+        property === 'wetBar' ||
+        property === 'hotTub' ||
+        property === 'miniBar' ||
+        property === 'fridge' ||
+        property === 'microwave' ||
+        property === 'kitchenette'){
+          if (obj[property]) {
+            var roomAmenity = document.createElement('li');
+            roomAmenity.innerText = obj[property];
+            container.appendChild(roomAmenity);
+          }
+        }
+      }
+    }
+  }
 }
 
 function Room(roomId,roomType,roomRate,imgSrc,isVacant,allowedOccupancy,roomLayoutSrc,iceCreamBar,wetBar,hotTub,miniBar,fridge,microwave,kitchenette){
@@ -93,37 +135,6 @@ Hotel.prototype.displayRoom = function(e) {
   createReservButtonListener();
 };
 
-function getTargetHotelRommProperty(targetRoom, propertyName, here) {
-  for (var key in here.hotelRooms){
-    if (key === targetRoom){
-      var target = here.hotelRooms[key][propertyName];
-    }
-  }
-  return target;
-}
-
-function buildTrueAmenitiesList(container, targetRoom, here) {
-  for (var key in here.hotelRooms){
-    if (key === targetRoom){
-      var obj = here.hotelRooms[key];
-      for (var property in obj) {
-        if (property === 'iceCreamBar' ||
-        property === 'wetBar' ||
-        property === 'hotTub' ||
-        property === 'miniBar' ||
-        property === 'fridge' ||
-        property === 'microwave' ||
-        property === 'kitchenette'){
-          if (obj[property]) {
-            var roomAmenity = document.createElement('li');
-            roomAmenity.innerText = obj[property];
-            container.appendChild(roomAmenity);
-          }
-        }
-      }
-    }
-  }
-}
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
     var obj = this.hotelRooms[key];
@@ -166,16 +177,6 @@ Hotel.prototype.updateOccupancy = function(e){
   console.log(e.target.name);
   //updates the occupancy
 };
-
-function onLoad(){
-  if(!window.localStorage.roomVacancy){
-    hotelA.randomOccupancy();
-    hotelA.writeVancanyToLocalStorage();
-  }
-  else{
-    hotelA.getOccupancyFromLocalStorage();
-  }
-}
 
 var hotelRoomsA = [
   new Room('A1', 'Family Suite','400.00','Pictures/Rooms/family-suite1.jpg',true,'10','placeholder2.svg','Ice Cream Bar','In Room Wet Bar','Hot Tub',false,false,false,'Full Feature Kitchenette')
