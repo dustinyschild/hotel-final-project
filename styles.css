@@ -240,7 +240,8 @@ h6{
   margin: auto;
   width: 25%;
   position: absolute;
-  top: 162px;
+  z-index: 100;
+  top: 75px;
   right: 75px;
   padding: 10px;
   background-color: #8c6951;
@@ -254,13 +255,32 @@ h6{
 .pop-up h3{
   margin: 7px 7px;
 }
+
 .pop-up ul{
 padding: 0px
 }
+
 .pop-up li{
 display: block;
 padding: 3px;
 margin-left: 5px;
+}
+
+.btn {
+  display: block;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #8c6951;
+  font-size: 18px;
+  background: #f7f5e6 ;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #4fd6cf ;
+  text-decoration: none;
+  color: #8c6951;
 }
 
 /*------------------Footer------------------*/
