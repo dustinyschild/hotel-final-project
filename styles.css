@@ -283,6 +283,16 @@ margin-left: 5px;
   color: #8c6951;
 }
 
+.pop-up h4{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color:  #4fd6cf;
+  font-family: 'Teko';
+  font-size: 30px;
+  line-height: 1.1em;
+}
+
 /*------------------Footer------------------*/
 
 footer {
