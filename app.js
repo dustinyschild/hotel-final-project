@@ -17,6 +17,7 @@ function createReservButtonListener(){
   reserveButton.addEventListener('click', function reserveButtonHandler(event){
     hotelA.updateOccupancy(event);
     hotelA.writeVancanyToLocalStorage();
+    hotelA.displayReservationMessage();
   });
 }
 
@@ -183,6 +184,11 @@ Hotel.prototype.updateOccupancy = function(e){
       this.hotelRooms[key].isVacant = false;
     }
   }
+};
+
+Hotel.prototype.displayReservationMessage = function(){
+  // find and hide the button
+  //display the Your room has been reserved! message
 };
 
 var hotelRoomsA = [
