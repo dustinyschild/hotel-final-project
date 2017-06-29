@@ -150,13 +150,8 @@ Hotel.prototype.displayRoom = function(e) {
 
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
-    var obj = this.hotelRooms[key];
-    for (var property in obj) {
-      if(property === 'isVacant'){
-        if(Math.random() < 0.2){
-          obj[property] = false;
-        }
-      }
+    if(Math.random() < 0.2){
+      this.hotelRooms[key].isVacant = false;
     }
   }
 };
@@ -164,30 +159,19 @@ Hotel.prototype.randomOccupancy = function(){
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
   var vacancy = JSON.parse(window.localStorage.roomVacancy);
   for(var key in this.hotelRooms){
-    var obj = this.hotelRooms[key];
-    for (var property in obj) {
-      if(property === 'isVacant'){
-        obj[property] = vacancy[key];
-      }
-    }
+    this.hotelRooms[key].isVacant = vacancy[key];
   }
 };
 
 Hotel.prototype.writeVancanyToLocalStorage = function(){
   var vacancy = {};
   for (var key in this.hotelRooms){
-    var obj = this.hotelRooms[key];
-    for (var property in obj) {
-      if(property === 'isVacant'){
-        vacancy[key] = obj[property];
-      }
-    }
+    vacancy[key] = this.hotelRooms[key].isVacant;
   }
   window.localStorage.roomVacancy = JSON.stringify(vacancy);
 };
 
 Hotel.prototype.updateOccupancy = function(e){
-  console.log(e.target.name);
   for (var key in this.hotelRooms){
     if(key === e.target.name){
       this.hotelRooms[key].isVacant = false;
