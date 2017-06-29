@@ -99,6 +99,7 @@ Hotel.prototype.displayRoom = function(e) {
   var oldRoom = document.getElementsByClassName('pop-up')[0];
   if(oldRoom){
     oldRoom.remove();
+    console.log('deleted old');
   }
   if(validTargets.indexOf(targetRoom) < 0){
     return;
@@ -106,9 +107,6 @@ Hotel.prototype.displayRoom = function(e) {
   var popUpContainer = document.getElementsByClassName('hotel-container')[0];
   var newPopUp = document.createElement('div');
   newPopUp.className = 'pop-up';
-  if(e.path[3].id === 'floorC'){
-    newPopUp.style.right = '52%';
-  }
   popUpContainer.appendChild(newPopUp);
   var roomImage = document.createElement('img');
   roomImage.setAttribute('src', targetImage);
@@ -149,6 +147,37 @@ Hotel.prototype.displayRoom = function(e) {
   }
 };
 
+function getTargetHotelRommProperty(targetRoom, propertyName, here) {
+  for (var key in here.hotelRooms){
+    if (key === targetRoom){
+      var target = here.hotelRooms[key][propertyName];
+    }
+  }
+  return target;
+}
+
+function buildTrueAmenitiesList(container, targetRoom, here) {
+  for (var key in here.hotelRooms){
+    if (key === targetRoom){
+      var obj = here.hotelRooms[key];
+      for (var property in obj) {
+        if (property === 'iceCreamBar' ||
+        property === 'wetBar' ||
+        property === 'hotTub' ||
+        property === 'miniBar' ||
+        property === 'fridge' ||
+        property === 'microwave' ||
+        property === 'kitchenette'){
+          if (obj[property]) {
+            var roomAmenity = document.createElement('li');
+            roomAmenity.innerText = obj[property];
+            container.appendChild(roomAmenity);
+          }
+        }
+      }
+    }
+  }
+}
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
     if(Math.random() < 0.2){
@@ -229,6 +258,7 @@ var hotelRoomsA = [
 
 var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
 
+console.log(hotelA);
 window.addEventListener('load', onLoad);
 
 window.addEventListener('click', function(event){
@@ -238,6 +268,7 @@ window.addEventListener('click', function(event){
 var submitClick = document.getElementById('submit');
 submitClick.addEventListener('click', function(event){
   filterRooms();
+   var checkBox = document.addEvent
 });
 
 var roomsAvailable = [];
