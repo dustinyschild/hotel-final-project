@@ -17,6 +17,8 @@ function createReservButtonListener(){
   reserveButton.addEventListener('click', function reserveButtonHandler(event){
     hotelA.updateOccupancy(event);
     hotelA.writeVancanyToLocalStorage();
+    hotelA.displayReservationMessage();
+    filterRooms();
   });
 }
 
@@ -93,11 +95,12 @@ Hotel.prototype.displayRoom = function(e) {
   var targetRoomType = getTargetHotelRommProperty(targetRoom, 'roomType', this);
   var targetRoomRate = getTargetHotelRommProperty(targetRoom, 'roomRate', this);
   var targetRoomOccupancy = getTargetHotelRommProperty(targetRoom, 'allowedOccupancy', this);
+  var validTargets = this.getValidRoomNumbers();
   var oldRoom = document.getElementsByClassName('pop-up')[0];
   if(oldRoom){
     oldRoom.remove();
   }
-  if(!targetRoom || targetRoom === 'floorA' || targetRoom === 'floorB' || targetRoom === 'floorC'){
+  if(validTargets.indexOf(targetRoom) < 0){
     return;
   }
   var popUpContainer = document.getElementsByClassName('hotel-container')[0];
@@ -130,23 +133,26 @@ Hotel.prototype.displayRoom = function(e) {
   var roomAmenitiesList = document.createElement('ul');
   amenitiesContainer.appendChild(roomAmenitiesList);
   buildTrueAmenitiesList(roomAmenitiesList, targetRoom, this);
-  var newReserve = document.createElement('a');
-  newReserve.setAttribute('class','btn');
-  newReserve.setAttribute('name',targetRoom);
-  newReserve.innerText = 'Reserve this Room';
-  newPopUp.appendChild(newReserve);
-  createReservButtonListener();
+  if(this.hotelRooms[targetRoom].isVacant){
+    var newReserve = document.createElement('a');
+    newReserve.setAttribute('class','btn');
+    newReserve.setAttribute('name',targetRoom);
+    newReserve.innerText = 'Reserve this Room';
+    newPopUp.appendChild(newReserve);
+    createReservButtonListener();
+  }
+  else{
+    var popUp = document.getElementsByClassName('pop-up')[0];
+    var message = document.createElement('h4');
+    message.innerText = 'Sorry, This Room is Unavailable.';
+    popUp.appendChild(message);
+  }
 };
 
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
-    var obj = this.hotelRooms[key];
-    for (var property in obj) {
-      if(property === 'isVacant'){
-        if(Math.random() < 0.2){
-          obj[property] = false;
-        }
-      }
+    if(Math.random() < 0.2){
+      this.hotelRooms[key].isVacant = false;
     }
   }
 };
@@ -154,35 +160,41 @@ Hotel.prototype.randomOccupancy = function(){
 Hotel.prototype.getOccupancyFromLocalStorage = function(){
   var vacancy = JSON.parse(window.localStorage.roomVacancy);
   for(var key in this.hotelRooms){
-    var obj = this.hotelRooms[key];
-    for (var property in obj) {
-      if(property === 'isVacant'){
-        obj[property] = vacancy[key];
-      }
-    }
+    this.hotelRooms[key].isVacant = vacancy[key];
   }
 };
 
 Hotel.prototype.writeVancanyToLocalStorage = function(){
   var vacancy = {};
   for (var key in this.hotelRooms){
-    var obj = this.hotelRooms[key];
-    for (var property in obj) {
-      if(property === 'isVacant'){
-        vacancy[key] = obj[property];
-      }
-    }
+    vacancy[key] = this.hotelRooms[key].isVacant;
   }
   window.localStorage.roomVacancy = JSON.stringify(vacancy);
 };
 
 Hotel.prototype.updateOccupancy = function(e){
-  console.log(e.target.name);
   for (var key in this.hotelRooms){
     if(key === e.target.name){
       this.hotelRooms[key].isVacant = false;
     }
   }
+};
+
+Hotel.prototype.displayReservationMessage = function(){
+  var button = document.getElementsByClassName('btn')[0];
+  button.style.display = 'none';
+  var popUp = document.getElementsByClassName('pop-up')[0];
+  var message = document.createElement('h4');
+  message.innerText = 'Your Room has been Reserved!';
+  popUp.appendChild(message);
+};
+
+Hotel.prototype.getValidRoomNumbers = function(){
+  var roomNumbers = [];
+  for(var key in this.hotelRooms){
+    roomNumbers.push(key);
+  }
+  return roomNumbers;
 };
 
 var hotelRoomsA = [
@@ -219,16 +231,7 @@ var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hote
 
 window.addEventListener('load', onLoad);
 
-var roomClick1A = document.getElementById('floorA');
-roomClick1A.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick1B = document.getElementById('floorB');
-roomClick1B.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick1C = document.getElementById('floorC');
-roomClick1C.addEventListener('click', function(event) {
+window.addEventListener('click', function(event){
   hotelA.displayRoom(event);
 });
 
@@ -239,6 +242,7 @@ submitClick.addEventListener('click', function(event){
 
 var roomsAvailable = [];
 var roomsNotAvailable = [];
+
 function filterRooms(){
   event.preventDefault();
   var dropdownBox = document.getElementById('dropdown-box');
