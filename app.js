@@ -103,6 +103,9 @@ Hotel.prototype.displayRoom = function(e) {
   var popUpContainer = document.getElementsByClassName('hotel-container')[0];
   var newPopUp = document.createElement('div');
   newPopUp.className = 'pop-up';
+  if(e.path[3].id === 'floorC'){
+    newPopUp.style.right = '400px';
+  }
   popUpContainer.appendChild(newPopUp);
   var roomImage = document.createElement('img');
   roomImage.setAttribute('src', targetImage);
@@ -177,9 +180,7 @@ Hotel.prototype.updateOccupancy = function(e){
   console.log(e.target.name);
   for (var key in this.hotelRooms){
     if(key === e.target.name){
-      console.log(this.hotelRooms[key].isVacant);
       this.hotelRooms[key].isVacant = false;
-      console.log(this.hotelRooms[key].isVacant);
     }
   }
 };
