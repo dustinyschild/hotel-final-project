@@ -95,11 +95,12 @@ Hotel.prototype.displayRoom = function(e) {
   var targetRoomType = getTargetHotelRommProperty(targetRoom, 'roomType', this);
   var targetRoomRate = getTargetHotelRommProperty(targetRoom, 'roomRate', this);
   var targetRoomOccupancy = getTargetHotelRommProperty(targetRoom, 'allowedOccupancy', this);
+  var validTargets = this.getValidRoomNumbers();
   var oldRoom = document.getElementsByClassName('pop-up')[0];
   if(oldRoom){
     oldRoom.remove();
   }
-  if(!targetRoom || targetRoom === 'floorA' || targetRoom === 'floorB' || targetRoom === 'floorC'){
+  if(validTargets.indexOf(targetRoom) < 0){
     return;
   }
   var popUpContainer = document.getElementsByClassName('hotel-container')[0];
@@ -188,6 +189,14 @@ Hotel.prototype.displayReservationMessage = function(){
   popUp.appendChild(message);
 };
 
+Hotel.prototype.getValidRoomNumbers = function(){
+  var roomNumbers = [];
+  for(var key in this.hotelRooms){
+    roomNumbers.push(key);
+  }
+  return roomNumbers;
+};
+
 var hotelRoomsA = [
   new Room('A1', 'Family Suite','400.00','Pictures/Rooms/family-suite1.jpg',true,'10','placeholder2.svg','Ice Cream Bar','In Room Wet Bar','Hot Tub',false,false,false,'Full Feature Kitchenette')
   ,new Room('A2', 'Family Suite','300.00','Pictures/Rooms/family-suite1.jpg', true,'7','placeholder2.svg','Ice Cream Bar',false,'Hot Tub',false,false,false,'Full Feature Kitchenette')
@@ -222,16 +231,7 @@ var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hote
 
 window.addEventListener('load', onLoad);
 
-var roomClick1A = document.getElementById('floorA');
-roomClick1A.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick1B = document.getElementById('floorB');
-roomClick1B.addEventListener('click', function(event) {
-  hotelA.displayRoom(event);
-});
-var roomClick1C = document.getElementById('floorC');
-roomClick1C.addEventListener('click', function(event) {
+window.addEventListener('click', function(event){
   hotelA.displayRoom(event);
 });
 
