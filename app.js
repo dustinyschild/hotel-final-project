@@ -284,8 +284,10 @@ dropdown.addEventListener('change', function(){
 var checkboxes = (document.querySelectorAll('.checkBox'));
 
 checkboxes.forEach(function(item){
-  item.addEventListener('click', function(){
-    alert('holy shite');
+  item.addEventListener('click', function(event){
+    roomsAvailableByAmenity(event.target.id);
+    console.log(roomsAvailable);
+    checkBoxFilter(roomsAvailable);
   });
 });
 
@@ -355,4 +357,12 @@ function updateCheckboxes(){
       labelElement.style.color = 'black';
     }
   });
+}
+
+function roomsAvailableByAmenity(amenity){
+  for(var i = roomsAvailable.length - 1; i > -1; i--){
+    if(!hotelA.hotelRooms[roomsAvailable[i]][amenity]){
+      roomsAvailable.splice(i, 1);
+    }
+  }
 }
