@@ -26,6 +26,12 @@ font-family: 'Cabin', sans-serif;
 #logo{
   float: left;
   display: inline;
+  height: 3em;
+  margin-bottom:20px;
+  padding: 15px;
+  fill: #f7f5e6;
+  display: block;
+
 }
 #wrapper {
   height: auto;
@@ -78,7 +84,9 @@ header {
   float: right;
   padding-right: 20px;
   letter-spacing: .1em;
-
+}
+#hidden{
+    visibility: hidden;
 }
 a{
   text-decoration: none;
@@ -123,7 +131,7 @@ h3{
     #f3f0d8 20px
   );
 }
-.aside:before {
+.aside:before { /*clipped corner*/
     content: '';
     position: absolute;
     bottom: 0; left: 0;
@@ -145,7 +153,7 @@ h3{margin: 15px 15px 0px 10px;
 fieldset{
   border: 0px
 }
-select {
+select { /*drop down box*/
   width: 170px;
   display: inline-block;
   margin: 4px 0px;
@@ -154,11 +162,24 @@ select {
   width: 50px;
 
 }
-label{
+label{ /*labels for checkboxes*/
   margin: 2px 0px;
   display: inline-block;
 }
+input{
+  -webkit-appearance: none;
+}
 
+  input:checked, input:active {
+  	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+  }
+
+  input:checked {
+  	background-color: #e9ecee;
+  	border: 1px solid #adb8c0;
+  	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+  	color: #99a1a7;
+  }
 /*------------------Submit Button------------------*/
 
 #submitForm{
@@ -266,7 +287,6 @@ margin-left: 5px;
 /*------------------Footer------------------*/
 
 footer {
-  content: ''
   bottom: 0px;
   padding: 15px 0;
   background-color: black;
@@ -290,7 +310,4 @@ li {
   margin: 0 auto;
   padding: 20px;
   border: 1px solid none;
-}
-#backgroundPicture{
-
 }
