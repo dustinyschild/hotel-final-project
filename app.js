@@ -175,7 +175,13 @@ Hotel.prototype.writeVancanyToLocalStorage = function(){
 
 Hotel.prototype.updateOccupancy = function(e){
   console.log(e.target.name);
-  //updates the occupancy
+  for (var key in this.hotelRooms){
+    if(key === e.target.name){
+      console.log(this.hotelRooms[key].isVacant);
+      this.hotelRooms[key].isVacant = false;
+      console.log(this.hotelRooms[key].isVacant);
+    }
+  }
 };
 
 var hotelRoomsA = [
