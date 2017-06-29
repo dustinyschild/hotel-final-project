@@ -189,7 +189,10 @@ Hotel.prototype.updateOccupancy = function(e){
 Hotel.prototype.displayReservationMessage = function(){
   var button = document.getElementsByClassName('btn')[0];
   button.style.display = 'none';
-  //display the Your room has been reserved! message
+  var popUp = document.getElementsByClassName('pop-up')[0];
+  var message = document.createElement('h4');
+  message.innerText = 'Your Room has been Reserved!';
+  popUp.appendChild(message);
 };
 
 var hotelRoomsA = [
