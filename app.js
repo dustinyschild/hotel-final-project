@@ -135,6 +135,7 @@ Hotel.prototype.displayRoom = function(e) {
     var newReserve = document.createElement('a');
     newReserve.setAttribute('class','btn');
     newReserve.setAttribute('name',targetRoom);
+    newReserve.setAttribute('id', 'button');
     newReserve.innerText = 'Reserve This Room';
     newPopUp.appendChild(newReserve);
     createReservButtonListener();
@@ -262,12 +263,21 @@ console.log(hotelA);
 window.addEventListener('load', onLoad);
 
 window.addEventListener('click', function(event){
+  if(event.target.id === 'button'){
+    return;
+  }
   hotelA.displayRoom(event);
 });
 
 var submitClick = document.getElementById('submit');
 submitClick.addEventListener('click', function(event){
   event.preventDefault();
+  filterRooms();
+  checkBoxFilter(roomsAvailable);
+});
+
+var dropdown = document.getElementById('dropdown-box');
+dropdown.addEventListener('change', function(){
   filterRooms();
   checkBoxFilter(roomsAvailable);
 });
@@ -280,6 +290,8 @@ checkBox.addEventListener('checked', function(event) {
 */
 var roomsAvailable = [];
 var roomsNotAvailable = [];
+var amenitiesAvailable = [];
+var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
 
 function filterRooms(){
   var dropdownBox = document.getElementById('dropdown-box');
@@ -298,11 +310,10 @@ function filterRooms(){
       unavailableRooms.style.fill = '#919191';
     }
   }
-  return roomsAvailable;
 }
+
 function checkBoxFilter(roomsAvailable) {
-  var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
-  var amenitiesAvailable = [];
+  amenitiesAvailable = [];
   roomsAvailable.forEach(function(item){
     for (var property in hotelA.hotelRooms[item]){
       if (property === 'iceCreamBar' ||
@@ -314,7 +325,6 @@ function checkBoxFilter(roomsAvailable) {
       property === 'kitchenette') {
         if (hotelA.hotelRooms[item][property] && amenitiesAvailable.indexOf(hotelA.hotelRooms[item][property]) < 0){
           amenitiesAvailable.push(property);
-          console.log(property);
         }
       }
     }
@@ -328,13 +338,13 @@ function updateCheckboxes(){
       var inputElement = document.getElementById(item);
       inputElement.disabled = true;
       var labelElement = inputElement.parentElement;
-      labelElement.style.textDecoration = 'line-through';
+      labelElement.style.color = 'lightgray';
     }
     else {
       var inputElement = document.getElementById(item);
       inputElement.disabled = false;
       var labelElement = inputElement.parentElement;
-      labelElement.style.textDecoration = 'none';
+      labelElement.style.color = 'black';
     }
   });
 }
