@@ -174,8 +174,8 @@ var hotelRoomsA = [
   ,new Room('B5', 'Business Class','100.00','Pictures/Rooms/business-class2.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
   ,new Room('B6', 'Business Class','100.00','Pictures/Rooms/business-class3.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
   ,new Room('B7', 'Business Class','100.00','Pictures/Rooms/business-class4.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
-  ,new Room('B8', 'Family Suites','100.00','Pictures/Rooms/family-suite1.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
-  ,new Room('B9', 'Family Suites','900.00','Pictures/Rooms/bat-suite.jpg', true,'12','placeholder2.svg','Bat Ice Cream Bar','Bat Wet Bar',' Bat Hot Tub',false,false,false,'Bat Kitchenette')
+  ,new Room('B8', 'Family Suite','100.00','Pictures/Rooms/family-suite1.jpg', true,'3','placeholder2.svg',false,false,'Hot Tub','Mini-Bar',false,'Microwave',false)
+  ,new Room('B9', 'Family Suite','900.00','Pictures/Rooms/bat-suite.jpg', true,'12','placeholder2.svg','Bat Ice Cream Bar','Bat Wet Bar',' Bat Hot Tub',false,false,false,'Bat Kitchenette')
   ,new Room('C1', 'Executive Suite','500.00','Pictures/Rooms/executive-suite1.jpg',true,'10','placeholder2.svg','Ice Cream Bar','In Room Wet Bar','Hot Tub',false,false,false,'Full Feature Kitchenette')
   ,new Room('C2', 'Executive Suite','300.00','Pictures/Rooms/executive-suite1.jpg', true,'7','placeholder2.svg','Ice Cream Bar',false,'Hot Tub',false,false,false,'Full Feature Kitchenette')
   ,new Room('C3', 'Executive Suite','50.00','Pictures/Rooms/executive-suite1.jpg', true,'4','placeholder2.svg',false,false,false,false,'Refrigerator',false,false)
@@ -205,3 +205,45 @@ var roomClick1C = document.getElementById('floorC');
 roomClick1C.addEventListener('click', function(event) {
   hotelA.displayRoom(event);
 });
+
+var submitClick = document.getElementById('submit');
+submitClick.addEventListener('click', function(event){
+  filterRooms();
+});
+
+var roomsAvailable = [];
+var roomsNotAvailable = [];
+function filterRooms(){
+  event.preventDefault();
+  var dropdownBox = document.getElementById('dropdown-box');
+  var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
+  roomsAvailable = [];
+  roomsNotAvailable = [];
+  for (var key in hotelA.hotelRooms){
+    if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
+      roomsAvailable.push(key);
+      var availableRooms = document.getElementById(key);
+      availableRooms.style.fill = '#1ea83c';
+    }
+    if (roomTypeSelected !== hotelA.hotelRooms[key].roomType) {
+      roomsNotAvailable.push(key);
+      var unavailableRooms = document.getElementById(key);
+      unavailableRooms.style.fill = '#919191';
+    }
+  }
+  //check true or false for the amenities
+  var iceCreamBarBox = document.getElementById('ice-cream-bar');
+  var wetBarBox = document.getElementById('wet-bar');
+  var hotTubBox = document.getElementById('hot-tub');
+  var miniBarBox = document.getElementById('mini-bar');
+  var fridgeBox = document.getElementById('fridge');
+  var microwaveBox = document.getElementById('microwave');
+  var kitchenetteBox = document.getElementById('kitchenette');
+  console.log(iceCreamBarBox.checked);
+  console.log(wetBarBox.checked);
+  console.log(hotTubBox);
+  console.log(miniBarBox);
+  console.log(fridgeBox);
+  console.log(microwaveBox);
+  console.log(kitchenetteBox);
+}
