@@ -303,6 +303,7 @@ function filterRooms(){
 }
   //buid array to hold possible room amenities for selected room type
 function checkBoxFilter(roomsAvailable) {
+  var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
   var iceCreamBarBox = document.createElement('label');
   var wetBarBox = document.getElementById('wet-bar');
   var hotTubBox = document.getElementById('hot-tub');
@@ -338,4 +339,18 @@ function checkBoxFilter(roomsAvailable) {
     }
   });
   console.log(amenitiesAvailable);
+  checkBoxesList.forEach(function(item){
+    if (amenitiesAvailable.indexOf(item) < 0){
+      var inputElement = document.getElementById(item);
+      inputElement.disabled = true;
+      var labelElement = inputElement.parentElement;
+      labelElement.style.textDecoration = 'line-through';
+    }
+    else {
+      var inputElement = document.getElementById(item);
+      inputElement.disabled = false;
+      var labelElement = inputElement.parentElement;
+      labelElement.style.textDecoration = 'none';
+    }
+  });
 }
