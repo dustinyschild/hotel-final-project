@@ -220,10 +220,10 @@ function filterRooms(){
   roomsAvailable = [];
   roomsNotAvailable = [];
   for (var key in hotelA.hotelRooms){
-    if (roomTypeSelected === hotelA.hotelRooms[key].roomType){
+    if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
       roomsAvailable.push(key);
       var availableRooms = document.getElementById(key);
-      availableRooms.style.fill = 'yellow';
+      availableRooms.style.fill = '#1ea83c';
     }
     if (roomTypeSelected !== hotelA.hotelRooms[key].roomType) {
       roomsNotAvailable.push(key);
