@@ -9,6 +9,8 @@ submit button: #8c6951 brown
 aside border: #4fd6cf turquoise
 */
 /*------------------Body------------------*/
+
+
 html, body{
 font-family: 'Cabin', sans-serif;
   background-color: black;
@@ -75,14 +77,19 @@ header {
   display: block;
   text-align: center;
 }
+
 #headerBlack{
   background-color: black;
   top: 0;
 }
 #headerNav{
   float: right;
-  padding-right: 20px;
+  padding: 20px 0px 0px 0px;
+  margin: 0px;
   letter-spacing: .1em;
+}
+#headerNav li{
+  padding: 0px 15px 0px 0px;
 }
 #hidden{
     visibility: hidden;
@@ -102,12 +109,14 @@ h3{
   margin-top: 15px;
 }
 
+
 /*------------------Left Aside------------------*/
 
 .aside{
   float: left;
   position: relative;
-  width: 225px;
+  width: 23%;
+  min-width: 200px;
   color: black;
   height: 400px;
   border-right: 10px solid #4fd6cf;
@@ -143,7 +152,7 @@ fieldset{
   border: 0px
 }
 select { /*drop down box*/
-  width: 170px;
+  width: 100%;
   display: inline-block;
   margin: 4px 0px;
 }
@@ -201,7 +210,7 @@ input{
   float: right;
   border: 1px solid none;
   width: 77%;
-  height: 100%;
+  min-height: 100%;
   background-color: rgba(255, 255, 255, .8);
   position: relative;
   text-align: justify;
@@ -216,11 +225,19 @@ input{
     width: 0;
 }
 #hotelContainerHeader{
-    text-align: center;
     padding: 0px 0px 5px;
     border-bottom: 3px solid #8c6951;
     color: black;
+
 }
+#hotelContainerHeader h3{
+  margin-left: 50px;
+  padding: 0px 100px 5px 0px;
+  line-height: 1em;
+}
+/*#hotel-containerPadding{
+  padding-right: 100px;
+}*/
 
 /*------------------Blue Print------------------*/
 .oneThird{
@@ -255,8 +272,8 @@ h6{
 
 .pop-up{
   margin: auto;
-  width: 25%;
-  position: absolute;
+  width: 22%;
+  position: fixed;
   z-index: 100;
   top: 75px;
   right: 75px;
@@ -336,4 +353,10 @@ li {
   margin: 0 auto;
   padding: 20px;
   border: 1px solid none;
+}
+
+@media only screen and (max-width: 500px) {
+    body {
+        background-color: lightblue;
+    }
 }
