@@ -30,8 +30,8 @@ font-family: 'Cabin', sans-serif;
   float: left;
   display: inline;
   height: 3em;
-  margin-bottom:20px;
-  padding: 15px;
+  margin-top: 1px;
+  padding: 15px 0px 0px 15px;
   fill: #f7f5e6;
   display: block;
 
@@ -70,6 +70,7 @@ font-family: 'Cabin', sans-serif;
 
 header {
   position: fixed;
+  height: 100px;
   margin: 0px auto;
   padding: 0px auto;
   background-color: none;
@@ -86,7 +87,7 @@ header {
 }
 #headerNav{
   float: right;
-  padding: 20px 0px 0px 0px;
+  padding: 30px 0px 0px 0px;
   margin: 0px;
   letter-spacing: .1em;
 }
@@ -116,13 +117,15 @@ h3{
 
 .aside{
   float: left;
+  position: fixed;
   width: 23%;
-  min-width: 200px;
+  min-width: 217px;
   color: black;
   height: 400px;
   top:100px;
   border-right: 10px solid #4fd6cf;
   box-sizing: border-box;
+  z-index: 1;
   background: repeating-linear-gradient(
     90deg,
     #f7f5e6,
@@ -209,9 +212,9 @@ input{
 /*------------------Right Room Picker Div------------------*/
 
 .hotel-container{
-  float: left;
+  float: right;
   border: 1px solid none;
-  width: 77%;
+  width: 74.5%;
   min-height: 100%;
   background-color: rgba(255, 255, 255, .8);
   position: relative;
@@ -231,8 +234,8 @@ input{
 
 }
 #hotelContainerHeader h3{
-  margin-left: 50px;
-  padding: 0px 100px 5px 0px;
+  margin-left: 10%;
+  padding: 0px 222px 5px 0px;
   line-height: 1em;
 }
 /*#hotel-containerPadding{
@@ -243,7 +246,7 @@ input{
 .oneThird{
   width:70%;
   display: block;
-  border: 1px solid red;
+  outline: 1px solid red;
 
 }
 svg{
@@ -276,7 +279,7 @@ h6{
   position: fixed;
   z-index: 100;
   top: 75px;
-  right: 75px;
+  right: 5%;
   padding: 10px;
   background-color: #8c6951;
   box-shadow: 15px 15px 45px 0px rgba(0,0,0,0.75);
@@ -360,6 +363,18 @@ li {
     body {
         background-color: lightblue;
     }
+    #logo{
+      height: 1.5em;
+      padding: 15px 0px 0px 19px;
+    }
+    #wrapper {
+        width: 100%;
+      }
+    #wrapperBlack {
+        width: 100%;
+      }
+
+-------------------
 }
 
 @media only screen and (max-width: 768px) and (min-width: 501px) {
@@ -374,14 +389,11 @@ li {
       }
     .hotel-container{
         width: 50%;
+        margin-left: 217px;
+        position:absolute;
       }
       .hotel-container:before {
           content: none;
-          position: absolute;
-          top: 0; right: 0;
-          border-top: 100px solid black;
-          border-left: 100px solid white;
-          width: 0;
       }
       .pop-up{
         width: 20%;
@@ -389,7 +401,24 @@ li {
       }
       .aside{
         width: 30%;
-
-
+      }
+      footer{
+        top: 500px;
+      }
+      .oneThird{
+        width:100%;
+      }
+      .relativeFooter {
+        position:absolute;
+        top: 900px;
+      }
+      #hotelContainerHeader h3{
+        font-size: 1.2em;
+        padding: 5% 30px 5px 0px;
+      }
+      #logo{
+        height: 2em;
+        padding: 15px 0px 0px 19px;
+      }
 
 }
