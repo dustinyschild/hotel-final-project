@@ -298,31 +298,12 @@ function filterRooms(){
       unavailableRooms.style.fill = '#919191';
     }
   }
-  console.log(roomsAvailable);
   return roomsAvailable;
 }
-  //buid array to hold possible room amenities for selected room type
 function checkBoxFilter(roomsAvailable) {
   var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
-  var iceCreamBarBox = document.createElement('label');
-  var wetBarBox = document.getElementById('wet-bar');
-  var hotTubBox = document.getElementById('hot-tub');
-  var miniBarBox = document.getElementById('mini-bar');
-  var fridgeBox = document.getElementById('fridge');
-  var microwaveBox = document.getElementById('microwave');
-  var kitchenetteBox = document.getElementById('kitchenette');
-  /*
-  var iceCreamBarBox = document.getElementById('ice-cream-bar');
-  var wetBarBox = document.getElementById('wet-bar');
-  var hotTubBox = document.getElementById('hot-tub');
-  var miniBarBox = document.getElementById('mini-bar');
-  var fridgeBox = document.getElementById('fridge');
-  var microwaveBox = document.getElementById('microwave');
-  var kitchenetteBox = document.getElementById('kitchenette');
-*/
   var amenitiesAvailable = [];
   roomsAvailable.forEach(function(item){
-    console.log(hotelA.hotelRooms[item]);
     for (var property in hotelA.hotelRooms[item]){
       if (property === 'iceCreamBar' ||
       property === 'wetBar' ||
@@ -338,7 +319,10 @@ function checkBoxFilter(roomsAvailable) {
       }
     }
   });
-  console.log(amenitiesAvailable);
+  updateCheckboxes();
+}
+
+function updateCheckboxes(){
   checkBoxesList.forEach(function(item){
     if (amenitiesAvailable.indexOf(item) < 0){
       var inputElement = document.getElementById(item);
