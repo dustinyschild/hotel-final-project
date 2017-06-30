@@ -1,6 +1,83 @@
 'use strict';
 
 var reserveButton;
+var roomsAvailable = [];
+var amenitiesAvailable = [];
+var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
+
+function filterRooms(){
+  checkboxes.forEach(function(item){
+    item.checked = false;
+  });
+  var dropdownBox = document.getElementById('dropdown-box');
+  var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
+  roomsAvailable = [];
+  for (var key in hotelA.hotelRooms){
+    if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
+      roomsAvailable.push(key);
+    }
+  }
+  colorRooms();
+}
+
+function colorRooms(){
+  var grayAllRooms = hotelA.getValidRoomNumbers();
+  grayAllRooms.forEach(function(item){
+    var gray = document.getElementById(item);
+    if(gray)
+      gray.style.fill = '#919191';
+  });
+  roomsAvailable.forEach(function(item){
+    var avail = document.getElementById(item);
+    if(avail)
+      avail.style.fill = '#1ea83c';
+  });
+}
+
+function checkBoxFilter(roomsAvailable) {
+  amenitiesAvailable = [];
+  roomsAvailable.forEach(function(item){
+    for (var property in hotelA.hotelRooms[item]){
+      if (property === 'iceCreamBar' ||
+      property === 'wetBar' ||
+      property === 'hotTub' ||
+      property === 'miniBar' ||
+      property === 'fridge' ||
+      property === 'microwave' ||
+      property === 'kitchenette') {
+        if (hotelA.hotelRooms[item][property] && amenitiesAvailable.indexOf(hotelA.hotelRooms[item][property]) < 0){
+          amenitiesAvailable.push(property);
+        }
+      }
+    }
+  });
+  updateCheckboxes();
+}
+
+function updateCheckboxes(){
+  checkBoxesList.forEach(function(item){
+    if (amenitiesAvailable.indexOf(item) < 0){
+      var inputElement = document.getElementById(item);
+      inputElement.disabled = true;
+      var labelElement = inputElement.parentElement;
+      labelElement.style.color = 'lightgray';
+    }
+    else {
+      var inputElement = document.getElementById(item);
+      inputElement.disabled = false;
+      var labelElement = inputElement.parentElement;
+      labelElement.style.color = 'black';
+    }
+  });
+}
+
+function roomsAvailableByAmenity(amenity){
+  for(var i = roomsAvailable.length - 1; i > -1; i--){
+    if(!hotelA.hotelRooms[roomsAvailable[i]][amenity]){
+      roomsAvailable.splice(i, 1);
+    }
+  }
+}
 
 function onLoad(){
   if(!window.localStorage.roomVacancy){
@@ -106,9 +183,6 @@ Hotel.prototype.displayRoom = function(e) {
   var popUpContainer = document.getElementsByClassName('hotel-container')[0];
   var newPopUp = document.createElement('div');
   newPopUp.className = 'pop-up';
-  if(e.path[3].id === 'floorC'){
-    newPopUp.style.right = '52%';
-  }
   popUpContainer.appendChild(newPopUp);
   var roomImage = document.createElement('img');
   roomImage.setAttribute('src', targetImage);
@@ -137,6 +211,7 @@ Hotel.prototype.displayRoom = function(e) {
     var newReserve = document.createElement('a');
     newReserve.setAttribute('class','btn');
     newReserve.setAttribute('name',targetRoom);
+    newReserve.setAttribute('id', 'button');
     newReserve.innerText = 'Reserve This Room';
     newPopUp.appendChild(newReserve);
     createReservButtonListener();
@@ -232,48 +307,31 @@ var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hote
 window.addEventListener('load', onLoad);
 
 window.addEventListener('click', function(event){
+  if(event.target.id === 'button'){
+    return;
+  }
   hotelA.displayRoom(event);
 });
 
-var submitClick = document.getElementById('submit');
-submitClick.addEventListener('click', function(event){
+var dropdown = document.getElementById('dropdown-box');
+dropdown.addEventListener('change', function(){
   filterRooms();
+  checkBoxFilter(roomsAvailable);
 });
 
-var roomsAvailable = [];
-var roomsNotAvailable = [];
-
-function filterRooms(){
-  event.preventDefault();
-  var dropdownBox = document.getElementById('dropdown-box');
-  var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
-  roomsAvailable = [];
-  roomsNotAvailable = [];
-  for (var key in hotelA.hotelRooms){
-    if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
-      roomsAvailable.push(key);
-      var availableRooms = document.getElementById(key);
-      availableRooms.style.fill = '#1ea83c';
+var checkboxes = (document.querySelectorAll('.checkBox'));
+checkboxes.forEach(function(item){
+  item.addEventListener('change', function(event){
+    if (document.getElementById(event.target.id).checked) {
+      roomsAvailableByAmenity(event.target.id);
+      checkBoxFilter(roomsAvailable);
+      colorRooms();
+    } else {
+      checkboxes.forEach(function(item){
+        item.checked = false;
+      }); //uncheck all the boxes, this is a hack and bad user experience, find a way to fix properly if time allows
+      filterRooms();
+      checkBoxFilter(roomsAvailable);
     }
-    if (roomTypeSelected !== hotelA.hotelRooms[key].roomType) {
-      roomsNotAvailable.push(key);
-      var unavailableRooms = document.getElementById(key);
-      unavailableRooms.style.fill = '#919191';
-    }
-  }
-  //check true or false for the amenities
-  var iceCreamBarBox = document.getElementById('ice-cream-bar');
-  var wetBarBox = document.getElementById('wet-bar');
-  var hotTubBox = document.getElementById('hot-tub');
-  var miniBarBox = document.getElementById('mini-bar');
-  var fridgeBox = document.getElementById('fridge');
-  var microwaveBox = document.getElementById('microwave');
-  var kitchenetteBox = document.getElementById('kitchenette');
-  console.log(iceCreamBarBox.checked);
-  console.log(wetBarBox.checked);
-  console.log(hotTubBox);
-  console.log(miniBarBox);
-  console.log(fridgeBox);
-  console.log(microwaveBox);
-  console.log(kitchenetteBox);
-}
+  });
+});

@@ -172,7 +172,7 @@ label{ /*labels for checkboxes*/
 }
 /* target this for customizing checkboxes
 input{
-  -webkit-appearance: none;
+
 }
 
   input:checked, input:active {
@@ -189,6 +189,7 @@ input{
 /*------------------Submit Button------------------*/
 /*
 #submitForm{
+  display: none;
   position: absolute;
   top:460px;
   left: 125px;
