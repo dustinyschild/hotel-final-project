@@ -216,7 +216,6 @@ input{
   float: right;
   border: 1px solid none;
   width: 74.5%;
-  min-height: 100%;
   background-color: rgba(255, 255, 255, .8);
   position: relative;
 }
@@ -343,6 +342,9 @@ footer {
   line-height: 1.5em;
   clear: both;
 }
+footer ul{
+  padding: 0px 0px 0px 0px;
+}
 .absoluteFooter {
   position: absolute;
 }
@@ -360,9 +362,6 @@ li {
 /*------------------Media Queries------------------*/
 
 @media only screen and (max-width: 500px) {
-    body {
-        background-color: lightyellow;
-    }
     #logo{
       height: 1.5em;
       padding: 5px 0px 0px 5px;
@@ -376,7 +375,7 @@ li {
 
       }
       header {
-        position: relative;
+        position: fixed;
         height: 64px;
       }
       #headerNav{
@@ -387,7 +386,7 @@ li {
         position: relative;
         width: 100%;
         height: 153px;
-        top: 0px;
+        top: 65px;
       }
       .aside:before { /*clipped corner*/
           content: none;
@@ -411,8 +410,9 @@ li {
       }
     .hotel-container{
       width: 100%;
-      margin-left: 0px;
       position: relative;
+      top:65px;
+      margin-bottom: 16px;
     }
     .hotel-container:before {
         content: none;
@@ -451,59 +451,64 @@ li {
       margin: -70% auto;
     }
     .pop-up{
-      position: fixed;
-      top: 300px;
+      top: 240px;
       left: 0px;
-      margin: 0;
       width: 100%;
-      z-index: 100;
-      padding: 10px;
       box-shadow: none;
+      box-sizing: border-box;
+      font-size: .8em;
     }
     .pop-up img{
-      margin: 0px auto;
       width: 100px;
     }
-
     .pop-up h3{
-      margin: 7px 7px;
+      font-size: 1.2em;
     }
-
-    .pop-up ul{
-    padding: 0px
+    .pop-up ul:first-child{
+      padding: 0px;
+      columns: 2;
     }
-
-    .pop-up li{
-    display: block;
-    padding: 3px;
-    margin-left: 5px;
-    }
-
     .btn {
-      display: block;
-      border-radius: 0px;
-      font-family: Arial;
-      color: #8c6951;
-      font-size: 18px;
-      background: #f7f5e6 ;
-      padding: 10px 20px 10px 20px;
-      text-decoration: none;
-    }
-
-    .btn:hover {
-      background: #4fd6cf ;
-      text-decoration: none;
-      color: #8c6951;
-    }
-
-    .pop-up h4{
-      margin: 0;
-      padding: 0;
+      font-family: 'Teko', sans-serif;
+      font-size: 2em;
+      padding: 5px 0px 5px 0px;
       text-align: center;
-      color:  #4fd6cf;
-      font-family: 'Teko';
-      font-size: 30px;
-      line-height: 1.1em;
+    }
+    .btn:hover {
+      background-color: #f7f5e6;
+      text-decoration: none;
+      color: #4fd6cf;
+    }
+    .pop-up h4{
+      font-size: 2em;
+    }
+
+    footer {
+      bottom: 0px;
+      padding: 0;
+      background-color: black;
+      width: 100%;
+      border: 1px solid none;
+      text-align: center;
+      font-size: 1em;
+    }
+
+    .absoluteFooter {
+      position: absolute;
+    }
+
+    .relativeFooter {
+      position: relative;
+      top: 50px;
+    }
+    footer li {
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid none;
+    }
+    footer ul{
+      margin: 0px;
     }
 -------------------
 }
