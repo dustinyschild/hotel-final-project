@@ -12,7 +12,9 @@ aside border: #4fd6cf turquoise
 *{
   outline: 1px solid none;
 }
-
+#submitForm{
+  display: none;
+}
 html, body{
 font-family: 'Cabin', sans-serif;
   background-color: black;
@@ -366,7 +368,7 @@ li {
     width: 100%;
     position: relative;
     top:65px;
-    height: 178%;
+    height: 161%;
     margin-bottom: 16px;
   }
   .hotel-container:before {
