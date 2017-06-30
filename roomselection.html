@@ -10,214 +10,207 @@
 <body>
   <img id="backdrop" src="Pictures/nightCity.jpg" />
   <div id="wrapperBlack">
-
-  <header id="headerBlack">
-    <div id="logo">
-      <img id="logo" src="Pictures/checkInLogo.svg" />
-     </div>
-
-    <ul id="headerNav">
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="roomselection.html">SELECT ROOM</a></li>
-      <span id="hidden"><li>CONTACT</li></span>
-      <!--<li>Local Events</li>-->
-    </ul>
-  </header>
-
-  <div class="aside">
-    <h3 class="asideH3">Select Accomidations:</h3>
-    <form>
-      <fieldset>
-        <select id="dropdown-box" name="Room Type">
-          <option selected disabled>Choose room type</option>
-          <option class="room-type-options" value="Executive Suite">Executive Suite</option>
-          <option class="room-type-options" value="Family Suite">Family Suite</option>
-          <option class="room-type-options" value="Basic Economy">Basic Economy</option>
-          <option class="room-type-options"value="Family Economy">Family Economy</option>
-          <option class="room-type-options" value="Business Class">Business Class</option>
-        </select>
-        <h3>Options:</h3>
-        <div id="checkDiv">
-        <label class="formCheckbox"> <input  id="ice-cream-bar" type="checkbox"/> Ice Cream Bar </label>
-        <label class="formCheckbox"> <input  id="wet-bar" type="checkbox"/> Wet Bar </label>
-        <label class="formCheckbox"> <input  id="hot-tub" type="checkbox"/> Hot Tub </label>
-        <label class="formCheckbox"> <input  id="mini-bar" type="checkbox"/> Mini Bar </label>
-        <label class="formCheckbox"> <input  id="fridge" type="checkbox"/> Fridge </label>
-        <label class="formCheckbox"> <input  id="microwave"type="checkbox"/> Microwave </label>
-        <label class="formCheckbox"> <input  id="kitchenette"type="checkbox"/> Kitchenette </label>
+    <header id="headerBlack">
+      <div id="logo">
+        <img id="logo" src="Pictures/checkInLogo.svg" />
       </div>
 
-      </fieldset>
-    </form>
-  </div>
-  <!--<form id="submitForm">
-    <input id="submit" type="submit" value="SUBMIT"></input>
-  </form> -->
-
-  <div class="hotel-container">
-
+      <ul id="headerNav">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="roomselection.html">SELECT ROOM</a></li>
+        <span id="hidden"><li>CONTACT</li></span>
+        <!--<li>Local Events</li>-->
+      </ul>
+    </header>
+    <div class="aside">
+      <h3 class="asideH3">Select Accomidations:</h3>
+      <form>
+        <fieldset>
+          <select id="dropdown-box" name="Room Type">
+            <option selected disabled>Choose room type</option>
+            <option class="room-type-options" value="Executive Suite">Executive Suite</option>
+            <option class="room-type-options" value="Family Suite">Family Suite</option>
+            <option class="room-type-options" value="Basic Economy">Basic Economy</option>
+            <option class="room-type-options"value="Family Economy">Family Economy</option>
+            <option class="room-type-options" value="Business Class">Business Class</option>
+          </select>
+          <h3>Options:</h3>
+          <div id="checkDiv">
+            <label class="formCheckbox"> <input  id="ice-cream-bar" type="checkbox"/> Ice Cream Bar </label>
+            <label class="formCheckbox"> <input  id="wet-bar" type="checkbox"/> Wet Bar </label>
+            <label class="formCheckbox"> <input  id="hot-tub" type="checkbox"/> Hot Tub </label>
+            <label class="formCheckbox"> <input  id="mini-bar" type="checkbox"/> Mini Bar </label>
+            <label class="formCheckbox"> <input  id="fridge" type="checkbox"/> Fridge </label>
+            <label class="formCheckbox"> <input  id="microwave"type="checkbox"/> Microwave </label>
+            <label class="formCheckbox"> <input  id="kitchenette"type="checkbox"/> Kitchenette </label>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <!--<form id="submitForm">
+      <input id="submit" type="submit" value="SUBMIT"></input>
+    </form> removed because submit button became obsolete-->
+    <div class="hotel-container">
       <div id="hotelContainerHeader">
-      <h3 id="hotel-containerPadding">USE THE FLOOR PLAN TO PICK YOUR DESIRED ROOM</h3>
+        <h3 id="hotel-containerPadding">USE THE FLOOR PLAN TO PICK YOUR DESIRED ROOM</h3>
       </div>
-    <div class="oneThird">
-      <svg version="1.1" id="floorA" x="0px" y="0px"
-      	 viewBox="0 0 362 830" style="enable-background:new 0 0 362 830;" transform='rotate(90)'>
-      <g>
-      	<g>
-      		<rect x="0.5" y="0.5" class="st0" width="361" height="829"/>
-      		<path d="M361,1v828H1V1H361 M362,0H0v830h362V0L362,0z"/>
-      	</g>
-      	<g>
-      		<rect id="A1" x="0.5" y="0.5" class="st0" width="155" height="155"/>
-      		<path d="M155,1v154H1V1H155 M156,0H0v156h156V0L156,0z"/>
-      	</g>
-      	<g>
-      		<rect id="A2" x="206.5" y="0.5" class="st0" width="155" height="155"/>
-      		<path d="M361,1v154H207V1H361 M362,0H206v156h156V0L362,0z"/>
-      	</g>
-      	<g>
-      		<rect id="A3" x="0.5" y="518.5" class="st0" width="155" height="155"/>
-      		<path d="M155,519v154H1V519H155 M156,518H0v156h156V518L156,518z"/>
-      	</g>
-      	<g>
-      		<rect id="A4" x="0.5" y="674.5" class="st0" width="155" height="155"/>
-      		<path d="M155,675v154H1V675H155 M156,674H0v156h156V674L156,674z"/>
-      	</g>
-      	<g>
-      		<rect id="A5" x="206.5" y="674.5" class="st0" width="155" height="155"/>
-      		<path d="M361,675v154H207V675H361 M362,674H206v156h156V674L362,674z"/>
-      	</g>
-      	<g>
-      		<rect id="A6" x="0.5" y="156.5" class="st0" width="155" height="155"/>
-      		<path d="M155,157v154H1V157H155 M156,156H0v156h156V156L156,156z"/>
-      	</g>
-      	<g>
-      		<rect id="A7" x="206.5" y="156.5" class="st0" width="155" height="155"/>
-      		<path d="M361,157v154H207V157H361 M362,156H206v156h156V156L362,156z"/>
-      	</g>
-      	<g>
-      		<rect id="A8" x="0.5" y="312.5" class="st0" width="155" height="155"/>
-      		<path d="M155,313v154H1V313H155 M156,312H0v156h156V312L156,312z"/>
-      	</g>
-      	<g>
-      		<rect id="A9" x="206.5" y="312.5" class="st0" width="155" height="155"/>
-      		<path d="M361,313v154H207V313H361 M362,312H206v156h156V312L362,312z"/>
-      	</g>
-      </g>
-      </svg>
-      <h6>FLOOR A</h6>
-    </div>
+      <div class="oneThird">
+        <svg version="1.1" id="floorA" x="0px" y="0px"
+        	 viewBox="0 0 362 830" style="enable-background:new 0 0 362 830;" transform='rotate(90)'>
+        <g>
+        	<g>
+        		<rect x="0.5" y="0.5" class="st0" width="361" height="829"/>
+        		<path d="M361,1v828H1V1H361 M362,0H0v830h362V0L362,0z"/>
+        	</g>
+        	<g>
+        		<rect id="A1" x="0.5" y="0.5" class="st0" width="155" height="155"/>
+        		<path d="M155,1v154H1V1H155 M156,0H0v156h156V0L156,0z"/>
+        	</g>
+        	<g>
+        		<rect id="A2" x="206.5" y="0.5" class="st0" width="155" height="155"/>
+        		<path d="M361,1v154H207V1H361 M362,0H206v156h156V0L362,0z"/>
+        	</g>
+        	<g>
+        		<rect id="A3" x="0.5" y="518.5" class="st0" width="155" height="155"/>
+        		<path d="M155,519v154H1V519H155 M156,518H0v156h156V518L156,518z"/>
+        	</g>
+        	<g>
+        		<rect id="A4" x="0.5" y="674.5" class="st0" width="155" height="155"/>
+        		<path d="M155,675v154H1V675H155 M156,674H0v156h156V674L156,674z"/>
+        	</g>
+        	<g>
+        		<rect id="A5" x="206.5" y="674.5" class="st0" width="155" height="155"/>
+        		<path d="M361,675v154H207V675H361 M362,674H206v156h156V674L362,674z"/>
+        	</g>
+        	<g>
+        		<rect id="A6" x="0.5" y="156.5" class="st0" width="155" height="155"/>
+        		<path d="M155,157v154H1V157H155 M156,156H0v156h156V156L156,156z"/>
+        	</g>
+        	<g>
+        		<rect id="A7" x="206.5" y="156.5" class="st0" width="155" height="155"/>
+        		<path d="M361,157v154H207V157H361 M362,156H206v156h156V156L362,156z"/>
+        	</g>
+        	<g>
+        		<rect id="A8" x="0.5" y="312.5" class="st0" width="155" height="155"/>
+        		<path d="M155,313v154H1V313H155 M156,312H0v156h156V312L156,312z"/>
+        	</g>
+        	<g>
+        		<rect id="A9" x="206.5" y="312.5" class="st0" width="155" height="155"/>
+        		<path d="M361,313v154H207V313H361 M362,312H206v156h156V312L362,312z"/>
+        	</g>
+        </g>
+        </svg>
+        <h6>FLOOR A</h6>
+      </div>
 
-    <div class="oneThird">
-      <svg version="1.1" id="floorB" x="0px" y="0px"
-      	 viewBox="0 0 362 830" style="enable-background:new 0 0 362 830;" transform='rotate(90)'>
-      <g>
-      	<g>
-      		<rect x="0.5" y="0.5" class="st0" width="361" height="829"/>
-      		<path d="M361,1v828H1V1H361 M362,0H0v830h362V0L362,0z"/>
-      	</g>
-      	<g>
-      		<rect id="B1" x="0.5" y="0.5" class="st0" width="155" height="155"/>
-      		<path d="M155,1v154H1V1H155 M156,0H0v156h156V0L156,0z"/>
-      	</g>
-      	<g>
-      		<rect id="B2" x="206.5" y="0.5" class="st0" width="155" height="155"/>
-      		<path d="M361,1v154H207V1H361 M362,0H206v156h156V0L362,0z"/>
-      	</g>
-      	<g>
-      		<rect id="B3" x="0.5" y="518.5" class="st0" width="155" height="155"/>
-      		<path d="M155,519v154H1V519H155 M156,518H0v156h156V518L156,518z"/>
-      	</g>
-      	<g>
-      		<rect id="B4" x="0.5" y="674.5" class="st0" width="155" height="155"/>
-      		<path d="M155,675v154H1V675H155 M156,674H0v156h156V674L156,674z"/>
-      	</g>
-      	<g>
-      		<rect id="B5" x="206.5" y="674.5" class="st0" width="155" height="155"/>
-      		<path d="M361,675v154H207V675H361 M362,674H206v156h156V674L362,674z"/>
-      	</g>
-      	<g>
-      		<rect id="B6" x="0.5" y="156.5" class="st0" width="155" height="155"/>
-      		<path d="M155,157v154H1V157H155 M156,156H0v156h156V156L156,156z"/>
-      	</g>
-      	<g>
-      		<rect id="B7" x="206.5" y="156.5" class="st0" width="155" height="155"/>
-      		<path d="M361,157v154H207V157H361 M362,156H206v156h156V156L362,156z"/>
-      	</g>
-      	<g>
-      		<rect id="B8" x="0.5" y="312.5" class="st0" width="155" height="155"/>
-      		<path d="M155,313v154H1V313H155 M156,312H0v156h156V312L156,312z"/>
-      	</g>
-      	<g>
-      		<rect id="B9" x="206.5" y="312.5" class="st0" width="155" height="155"/>
-      		<path d="M361,313v154H207V313H361 M362,312H206v156h156V312L362,312z"/>
-      	</g>
-      </g>
-      </svg>
-      <h6>FLOOR B</h6>
+      <div class="oneThird">
+        <svg version="1.1" id="floorB" x="0px" y="0px"
+        	 viewBox="0 0 362 830" style="enable-background:new 0 0 362 830;" transform='rotate(90)'>
+        <g>
+        	<g>
+        		<rect x="0.5" y="0.5" class="st0" width="361" height="829"/>
+        		<path d="M361,1v828H1V1H361 M362,0H0v830h362V0L362,0z"/>
+        	</g>
+        	<g>
+        		<rect id="B1" x="0.5" y="0.5" class="st0" width="155" height="155"/>
+        		<path d="M155,1v154H1V1H155 M156,0H0v156h156V0L156,0z"/>
+        	</g>
+        	<g>
+        		<rect id="B2" x="206.5" y="0.5" class="st0" width="155" height="155"/>
+        		<path d="M361,1v154H207V1H361 M362,0H206v156h156V0L362,0z"/>
+        	</g>
+        	<g>
+        		<rect id="B3" x="0.5" y="518.5" class="st0" width="155" height="155"/>
+        		<path d="M155,519v154H1V519H155 M156,518H0v156h156V518L156,518z"/>
+        	</g>
+        	<g>
+        		<rect id="B4" x="0.5" y="674.5" class="st0" width="155" height="155"/>
+        		<path d="M155,675v154H1V675H155 M156,674H0v156h156V674L156,674z"/>
+        	</g>
+        	<g>
+        		<rect id="B5" x="206.5" y="674.5" class="st0" width="155" height="155"/>
+        		<path d="M361,675v154H207V675H361 M362,674H206v156h156V674L362,674z"/>
+        	</g>
+        	<g>
+        		<rect id="B6" x="0.5" y="156.5" class="st0" width="155" height="155"/>
+        		<path d="M155,157v154H1V157H155 M156,156H0v156h156V156L156,156z"/>
+        	</g>
+        	<g>
+        		<rect id="B7" x="206.5" y="156.5" class="st0" width="155" height="155"/>
+        		<path d="M361,157v154H207V157H361 M362,156H206v156h156V156L362,156z"/>
+        	</g>
+        	<g>
+        		<rect id="B8" x="0.5" y="312.5" class="st0" width="155" height="155"/>
+        		<path d="M155,313v154H1V313H155 M156,312H0v156h156V312L156,312z"/>
+        	</g>
+        	<g>
+        		<rect id="B9" x="206.5" y="312.5" class="st0" width="155" height="155"/>
+        		<path d="M361,313v154H207V313H361 M362,312H206v156h156V312L362,312z"/>
+        	</g>
+        </g>
+        </svg>
+        <h6>FLOOR B</h6>
 
-    </div>
+      </div>
 
-    <div class="oneThird">
-      <svg version="1.1" id="floorC" x="0px" y="0px"
-         viewBox="0 0 362 830" style="enable-background:new 0 0 362 830;" transform='rotate(90)'>
-      <g>
+      <div class="oneThird">
+        <svg version="1.1" id="floorC" x="0px" y="0px"
+           viewBox="0 0 362 830" style="enable-background:new 0 0 362 830;" transform='rotate(90)'>
         <g>
-          <rect x="0.5" y="0.5" class="st0" width="361" height="829"/>
-          <path d="M361,1v828H1V1H361 M362,0H0v830h362V0L362,0z"/>
+          <g>
+            <rect x="0.5" y="0.5" class="st0" width="361" height="829"/>
+            <path d="M361,1v828H1V1H361 M362,0H0v830h362V0L362,0z"/>
+          </g>
+          <g>
+            <rect id="C1" x="0.5" y="0.5" class="st0" width="155" height="155"/>
+            <path d="M155,1v154H1V1H155 M156,0H0v156h156V0L156,0z"/>
+          </g>
+          <g>
+            <rect id="C2" x="206.5" y="0.5" class="st0" width="155" height="155"/>
+            <path d="M361,1v154H207V1H361 M362,0H206v156h156V0L362,0z"/>
+          </g>
+          <g>
+            <rect id="C3" x="0.5" y="518.5" class="st0" width="155" height="155"/>
+            <path d="M155,519v154H1V519H155 M156,518H0v156h156V518L156,518z"/>
+          </g>
+          <g>
+            <rect id="C4" x="0.5" y="674.5" class="st0" width="155" height="155"/>
+            <path d="M155,675v154H1V675H155 M156,674H0v156h156V674L156,674z"/>
+          </g>
+          <g>
+            <rect id="C5" x="206.5" y="674.5" class="st0" width="155" height="155"/>
+            <path d="M361,675v154H207V675H361 M362,674H206v156h156V674L362,674z"/>
+          </g>
+          <g>
+            <rect id="C6" x="0.5" y="156.5" class="st0" width="155" height="155"/>
+            <path d="M155,157v154H1V157H155 M156,156H0v156h156V156L156,156z"/>
+          </g>
+          <g>
+            <rect id="C7" x="206.5" y="156.5" class="st0" width="155" height="155"/>
+            <path d="M361,157v154H207V157H361 M362,156H206v156h156V156L362,156z"/>
+          </g>
+          <g>
+            <rect id="C8" x="0.5" y="312.5" class="st0" width="155" height="155"/>
+            <path d="M155,313v154H1V313H155 M156,312H0v156h156V312L156,312z"/>
+          </g>
+          <g>
+            <rect id="C9" x="206.5" y="312.5" class="st0" width="155" height="155"/>
+            <path d="M361,313v154H207V313H361 M362,312H206v156h156V312L362,312z"/>
+          </g>
         </g>
-        <g>
-          <rect id="C1" x="0.5" y="0.5" class="st0" width="155" height="155"/>
-          <path d="M155,1v154H1V1H155 M156,0H0v156h156V0L156,0z"/>
-        </g>
-        <g>
-          <rect id="C2" x="206.5" y="0.5" class="st0" width="155" height="155"/>
-          <path d="M361,1v154H207V1H361 M362,0H206v156h156V0L362,0z"/>
-        </g>
-        <g>
-          <rect id="C3" x="0.5" y="518.5" class="st0" width="155" height="155"/>
-          <path d="M155,519v154H1V519H155 M156,518H0v156h156V518L156,518z"/>
-        </g>
-        <g>
-          <rect id="C4" x="0.5" y="674.5" class="st0" width="155" height="155"/>
-          <path d="M155,675v154H1V675H155 M156,674H0v156h156V674L156,674z"/>
-        </g>
-        <g>
-          <rect id="C5" x="206.5" y="674.5" class="st0" width="155" height="155"/>
-          <path d="M361,675v154H207V675H361 M362,674H206v156h156V674L362,674z"/>
-        </g>
-        <g>
-          <rect id="C6" x="0.5" y="156.5" class="st0" width="155" height="155"/>
-          <path d="M155,157v154H1V157H155 M156,156H0v156h156V156L156,156z"/>
-        </g>
-        <g>
-          <rect id="C7" x="206.5" y="156.5" class="st0" width="155" height="155"/>
-          <path d="M361,157v154H207V157H361 M362,156H206v156h156V156L362,156z"/>
-        </g>
-        <g>
-          <rect id="C8" x="0.5" y="312.5" class="st0" width="155" height="155"/>
-          <path d="M155,313v154H1V313H155 M156,312H0v156h156V312L156,312z"/>
-        </g>
-        <g>
-          <rect id="C9" x="206.5" y="312.5" class="st0" width="155" height="155"/>
-          <path d="M361,313v154H207V313H361 M362,312H206v156h156V312L362,312z"/>
-        </g>
-      </g>
-      </svg>
-      <h6>FLOOR C</h6>
+        </svg>
+        <h6>FLOOR C</h6>
 
-    </div>
-
-    </div>
-
-  <footer class="relativeFooter">
-    <ul>
-      <li>PHONE: 1.800.555.5555</li>
-      <li>checkin.com</li>
-      <li>123 Shady Way Ln. Iowa City, IA 52246</li>
-    </ul>
-  </footer>
-</div>
-  <script src="app.js"></script>
+        </div>
+      </div>
+    <footer class="relativeFooter">
+      <ul>
+        <li>123 Shady Way Ln. Iowa City, IA 52246</li>
+        <li>checkin.com</li>
+        <li>PHONE: 1.800.555.5555</li>
+      </ul>
+    </footer>
+  </div>
+    <script src="app.js"></script>
 </body>
 </html>
