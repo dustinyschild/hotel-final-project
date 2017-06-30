@@ -301,20 +301,27 @@ var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'mi
 function filterRooms(){
   var dropdownBox = document.getElementById('dropdown-box');
   var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
-  roomsAvailable = [];
-  roomsNotAvailable = [];
+  console.log(roomTypeSelected);
+  roomsAvailable.splice(0,roomsAvailable.length);
+  roomsNotAvailable.splice(0,roomsNotAvailable.length);
   for (var key in hotelA.hotelRooms){
     if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
       roomsAvailable.push(key);
-      var availableRooms = document.getElementById(key);
-      availableRooms.style.fill = '#1ea83c';
     }
-    if (roomTypeSelected !== hotelA.hotelRooms[key].roomType) {
+    if (roomTypeSelected !== hotelA.hotelRooms[key].roomType || !hotelA.hotelRooms[key].isVacant) {
       roomsNotAvailable.push(key);
-      var unavailableRooms = document.getElementById(key);
-      unavailableRooms.style.fill = '#919191';
     }
   }
+  console.log(roomsAvailable);
+  console.log(roomsNotAvailable);
+  roomsAvailable.forEach(function(item){
+    var avail = document.getElementById(item);
+    avail.style.fill = '#1ea83c';
+  });
+  roomsNotAvailable.forEach(function(item){
+    var notAvail = document.getElementById(item);
+    notAvail.style.fill = '#919191';
+  });
 }
 
 function checkBoxFilter(roomsAvailable) {
