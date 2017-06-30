@@ -137,7 +137,7 @@ Hotel.prototype.displayRoom = function(e) {
     var newReserve = document.createElement('a');
     newReserve.setAttribute('class','btn');
     newReserve.setAttribute('name',targetRoom);
-    newReserve.innerText = 'Reserve this Room';
+    newReserve.innerText = 'Reserve This Room';
     newPopUp.appendChild(newReserve);
     createReservButtonListener();
   }

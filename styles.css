@@ -9,13 +9,16 @@ submit button: #8c6951 brown
 aside border: #4fd6cf turquoise
 */
 /*------------------Body------------------*/
+*{
+  outline: 1px solid none;
+}
+
 html, body{
 font-family: 'Cabin', sans-serif;
   background-color: black;
   color: #f7f5e6;
   height:  100%;
   margin:  0px auto;
-  padding: 0px auto;
 }
 
 #backdrop{
@@ -27,8 +30,8 @@ font-family: 'Cabin', sans-serif;
   float: left;
   display: inline;
   height: 3em;
-  margin-bottom:20px;
-  padding: 15px;
+  margin-top: 1px;
+  padding: 15px 0px 0px 15px;
   fill: #f7f5e6;
   display: block;
 
@@ -67,6 +70,7 @@ font-family: 'Cabin', sans-serif;
 
 header {
   position: fixed;
+  height: 100px;
   margin: 0px auto;
   padding: 0px auto;
   background-color: none;
@@ -76,14 +80,19 @@ header {
   display: block;
   text-align: center;
 }
+
 #headerBlack{
   background-color: black;
   top: 0;
 }
 #headerNav{
   float: right;
-  padding-right: 20px;
+  padding: 30px 0px 0px 0px;
+  margin: 0px;
   letter-spacing: .1em;
+}
+#headerNav li{
+  padding: 0px 15px 0px 0px;
 }
 #hidden{
     visibility: hidden;
@@ -95,34 +104,28 @@ a{
 a:hover{
   color: #4fd6cf
 }
-h1{
-  font-family: 'Teko', sans-serif;
-  font-size: 4em;
-  margin: 0;
-  padding: 0;
-}
+
 h3{
   font-family: 'Teko', sans-serif;
   font-size: 1.5em;
   letter-spacing: .02em;
   margin-top: 15px;
 }
-#logoPlaceHolderText{
-  font-family: 'Teko', sans-serif;
-  font-size: 4em;
-  margin: 0;
-  padding: 0;
-}
+
+
 /*------------------Left Aside------------------*/
 
 .aside{
   float: left;
-  position: relative;
-  width: 225px;
+  position: fixed;
+  width: 23%;
+  min-width: 217px;
   color: black;
   height: 400px;
+  top:100px;
   border-right: 10px solid #4fd6cf;
   box-sizing: border-box;
+  z-index: 1;
   background: repeating-linear-gradient(
     90deg,
     #f7f5e6,
@@ -140,11 +143,11 @@ h3{
     width: 0;
 }
 form {
-  padding: 15px;
+  padding: 0px 15px;
 
 }
-h3{margin: 15px 15px 0px 10px;
-
+h3{
+  margin: 15px 15px -2px 10px;
 }
 .asideH3{
   padding-left: 15px;
@@ -154,18 +157,20 @@ fieldset{
   border: 0px
 }
 select { /*drop down box*/
-  width: 170px;
+  width: 100%;
   display: inline-block;
   margin: 4px 0px;
 }
+/* code removed from aside but could be added at a later date
 #occupants{
   width: 50px;
+}*/
 
-}
 label{ /*labels for checkboxes*/
   margin: 2px 0px;
-  display: inline-block;
+  display: block;
 }
+/* target this for customizing checkboxes
 input{
   -webkit-appearance: none;
 }
@@ -180,8 +185,9 @@ input{
   	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
   	color: #99a1a7;
   }
+  */
 /*------------------Submit Button------------------*/
-
+/*
 #submitForm{
   position: absolute;
   top:460px;
@@ -190,6 +196,7 @@ input{
 }
 #submit{
   background-color: #8c6951; /* Green */
+/*
   border: none;
   color: #f7f5e6;
   padding: 15px 32px;
@@ -201,19 +208,16 @@ input{
   letter-spacing: .1em;
 
 }
-
+*/
 
 /*------------------Right Room Picker Div------------------*/
 
 .hotel-container{
   float: right;
   border: 1px solid none;
-  width: 77%;
-  height: 600px;
+  width: 74.5%;
   background-color: rgba(255, 255, 255, .8);
-  position:relative;
-  text-align: justify;
-  font-size: .01;
+  position: relative;
 }
 .hotel-container:before {
     content: '';
@@ -224,23 +228,33 @@ input{
     width: 0;
 }
 #hotelContainerHeader{
-    text-align: center;
     padding: 0px 0px 5px;
     border-bottom: 3px solid #8c6951;
     color: black;
+
 }
+#hotelContainerHeader h3{
+  margin-left: 10%;
+  padding: 0px 222px 5px 0px;
+  line-height: 1em;
+}
+/*#hotel-containerPadding{
+  padding-right: 100px;
+}*/
 
 /*------------------Blue Print------------------*/
 .oneThird{
-  width:33%;
-  display: inline-block;
-  text-align: center;
+  width:70%;
+  display: block;
+  outline: 1px solid none;
+
 }
 svg{
-  height: 400px;
-margin: auto;
-padding: 50px 25px 0px 25px;
+width: 30%;
+/*margin: auto;
+padding: 50px 25px 0px 25px;*/
 display:block;
+margin: auto;
 }
 .st0{
   fill: #919191;
@@ -248,10 +262,11 @@ display:block;
   stroke-width: 3px
 }
 h6{
-  margin-top: 20px;
   color: black;
   font-size: 1em;
   letter-spacing: .05em;
+  float: right;
+  margin: -13% 16% -15% -20%;
 }
 
 
@@ -259,11 +274,11 @@ h6{
 
 .pop-up{
   margin: auto;
-  width: 25%;
-  position: absolute;
+  width: 24%;
+  position: fixed;
   z-index: 100;
   top: 75px;
-  right: 75px;
+  right: 2%;
   padding: 10px;
   background-color: #8c6951;
   box-shadow: 15px 15px 45px 0px rgba(0,0,0,0.75);
@@ -327,6 +342,9 @@ footer {
   line-height: 1.5em;
   clear: both;
 }
+footer ul{
+  padding: 0px 0px 0px 0px;
+}
 .absoluteFooter {
   position: absolute;
 }
@@ -340,4 +358,277 @@ li {
   margin: 0 auto;
   padding: 20px;
   border: 1px solid none;
+}
+/*------------------Media Queries------------------*/
+
+@media only screen and (max-width: 500px) {
+    #logo{
+      height: 1.5em;
+      padding: 5px 0px 0px 5px;
+    }
+    #wrapper {
+        width: 100%;
+        margin-left: -0px;
+      }
+    #wrapperBlack {
+        width: 100%;
+        padding: 0px;
+
+      }
+      header {
+        position: fixed;
+        height: 64px;
+      }
+      #headerNav{
+        padding: 10px 0px 0px 25px;
+      }
+
+      .aside{
+        float: none;
+        position: relative;
+        width: 100%;
+        height: 153px;
+        top: 65px;
+      }
+      .aside:before { /*clipped corner*/
+          content: none;
+      }
+      h3{
+        margin: 0px 15px -2px 10px;
+        font-size: 1em;
+      }
+      select { /*drop down box*/
+        margin: 0px;
+      }
+      fieldset{
+        padding: 0px 0px 0px 0px;
+      }
+      #checkDiv{
+        columns: 2;
+        padding: 0px 10px 0px 10px;
+      }
+      label{
+        font-size: .7em
+      }
+    .hotel-container{
+      width: 100%;
+      position: relative;
+      top:65px;
+      height: 178%;
+      margin-bottom: 16px;
+    }
+    .hotel-container:before {
+        content: none;
+    }
+    .relativeFooter {
+      position:absolute;
+      top: 900px;
+    }
+    #hotelContainerHeader{
+        padding: 0px 0px 5px;
+        border-bottom: 3px solid #8c6951;
+        color: black;
+
+    }
+    #hotelContainerHeader h3{
+      margin-left: 0%;
+      padding: 5px 0px 0px 0px;
+      line-height: 1em;
+      text-align: center;
+    }
+    .oneThird{
+      width: 100%;
+      display: block;
+      outline: 1px solid none;
+
+    }
+    svg{
+      width: 34%;
+    }
+    h6{
+      font-size: .7em;
+      text-align: center;
+      margin: -70% 16% -15% -20%;
+
+    }
+    .pop-up{
+      top: 240px;
+      left: 0px;
+      width: 100%;
+      box-shadow: none;
+      box-sizing: border-box;
+      font-size: .8em;
+    }
+    .pop-up img{
+      width: 100px;
+    }
+    .pop-up h3{
+      font-size: 1.2em;
+    }
+    .pop-up ul:first-child{
+      padding: 0px;
+      columns: 2;
+    }
+    .btn {
+      font-family: 'Teko', sans-serif;
+      font-size: 2em;
+      padding: 5px 0px 5px 0px;
+      text-align: center;
+    }
+    .btn:hover {
+      background-color: #f7f5e6;
+      text-decoration: none;
+      color: #4fd6cf;
+    }
+    .pop-up h4{
+      font-size: 2em;
+    }
+
+    footer {
+      bottom: 0px;
+      padding: 0;
+      background-color: black;
+      width: 100%;
+      border: 1px solid none;
+      text-align: center;
+      font-size: 1em;
+    }
+
+    .absoluteFooter {
+      position: absolute;
+    }
+
+    .relativeFooter {
+      position: relative;
+      top: 50px;
+    }
+    footer li {
+      display: block;
+      margin: 0 auto;
+      padding: 10px;
+      border: 1px solid none;
+    }
+    footer ul{
+      margin: 0px;
+    }
+}
+/*--------------Ipad---------------*/
+
+@media only screen and (max-width: 780px) and (min-width: 501px) {
+
+    #wrapper {
+        width: 100%;
+        position:absolute;
+      }
+    #wrapperBlack {
+        width: 100%;
+      }
+    .hotel-container{
+        width: 72%;
+        margin-left: 217px;
+        position:relative;
+        height: 184%;
+      }
+      .oneThird{
+        width: 100%;
+        display: block;
+        outline: 1px solid none;
+
+      }
+      svg{
+        width: 31%;
+        padding: 0px 0px 0px 0px;
+        display:block;
+        margin: auto;
+      }
+      h6{
+        font-size: 1em;
+        float: right;
+        text-align: center;
+        margin: -68% 40% -15% -20%;
+      }
+      .pop-up{
+        position:fixed;
+        top: 50%;
+        left: 0px;
+        width: 100%;
+        box-shadow: none;
+        box-sizing: border-box;
+        font-size: .8em;
+        display: block;
+      }
+      .pop-up img{
+        width: 370px;
+        float: left;
+      }
+      .pop-up h3{
+        font-size: 2em;
+        padding-left: 373px;
+
+      }
+      .pop-up ul{
+        columns: 1;
+        padding-left: 20;
+        font-size: 1.1em;
+
+
+      }
+      .btn {
+        font-family: 'Teko', sans-serif;
+        font-size: 2em;
+        padding: 5px 0px 5px 0px;
+        text-align: center;
+      }
+      .btn:hover {
+        background-color: #f7f5e6;
+        text-decoration: none;
+        color: #4fd6cf;
+      }
+      .pop-up h4{
+        font-size: 2em;
+
+      }
+      .aside{
+        width: 30%;
+        height: 100%;
+      }
+      footer{
+        top: 500px;
+      }
+      .oneThird{
+        width:100%;
+      }
+      .relativeFooter {
+        position:absolute;
+        top: 900px;
+      }
+      #hotelContainerHeader h3{
+        font-size: 1.5em;
+        padding: 10px 100px 5px 40px;
+      }
+      #logo{
+        height: 2em;
+        padding: 15px 0px 0px 19px;
+      }
+      footer {
+        bottom: 0px;
+        z-index: 1;
+        display:block;
+        position: absolute;
+      }
+      footer ul{
+        padding: 0px 0px 0px 0px;
+      }
+
+
+      .relativeFooter {
+        position: relative;
+        top: 50px;
+      }
+      li {
+        display: inline;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid none;
+      }
 }
