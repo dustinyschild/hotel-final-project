@@ -52,6 +52,7 @@ function checkBoxFilter(roomsAvailable) {
 }
 
 function updateCheckboxes(){
+  console.log(checkBoxesList);
   checkBoxesList.forEach(function(item){
     if (amenitiesAvailable.indexOf(item) < 0){
       var inputElement = document.getElementById(item);
