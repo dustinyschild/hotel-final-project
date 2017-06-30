@@ -280,6 +280,7 @@ checkboxes.forEach(function(item){
     if (document.getElementById(event.target.id).checked) {
       roomsAvailableByAmenity(event.target.id);
       checkBoxFilter(roomsAvailable);
+      colorRooms();
     } else {
       filterRooms();
       checkBoxFilter(roomsAvailable);
@@ -288,7 +289,6 @@ checkboxes.forEach(function(item){
 });
 
 var roomsAvailable = [];
-var roomsNotAvailable = [];
 var amenitiesAvailable = [];
 var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
 
@@ -296,26 +296,25 @@ function filterRooms(){
   var dropdownBox = document.getElementById('dropdown-box');
   var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
   roomsAvailable = [];
-  roomsNotAvailable = [];
   for (var key in hotelA.hotelRooms){
     if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
       roomsAvailable.push(key);
-    }
-    if (roomTypeSelected !== hotelA.hotelRooms[key].roomType || !hotelA.hotelRooms[key].isVacant) {
-      roomsNotAvailable.push(key);
     }
   }
   colorRooms();
 }
 
 function colorRooms(){
+  var grayAllRooms = hotelA.getValidRoomNumbers();
+  grayAllRooms.forEach(function(item){
+    var gray = document.getElementById(item);
+    if(gray)
+      gray.style.fill = '#919191';
+  });
   roomsAvailable.forEach(function(item){
     var avail = document.getElementById(item);
-    avail.style.fill = '#1ea83c';
-  });
-  roomsNotAvailable.forEach(function(item){
-    var notAvail = document.getElementById(item);
-    notAvail.style.fill = '#919191';
+    if(avail)
+      avail.style.fill = '#1ea83c';
   });
 }
 
