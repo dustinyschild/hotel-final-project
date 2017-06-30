@@ -287,13 +287,6 @@ checkboxes.forEach(function(item){
   });
 });
 
-/*
-var checkBox = document.getElementById('formCheckbox');
-checkBox.addEventListener('checked', function(event) {
-  console.log('box checked');
-
-});
-*/
 var roomsAvailable = [];
 var roomsNotAvailable = [];
 var amenitiesAvailable = [];
