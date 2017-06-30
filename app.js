@@ -6,6 +6,9 @@ var amenitiesAvailable = [];
 var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
 
 function filterRooms(){
+  checkboxes.forEach(function(item){
+    item.checked = false;
+  });
   var dropdownBox = document.getElementById('dropdown-box');
   var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
   roomsAvailable = [];
