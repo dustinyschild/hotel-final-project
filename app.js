@@ -305,6 +305,10 @@ function filterRooms(){
       roomsNotAvailable.push(key);
     }
   }
+  colorRooms();
+}
+
+function colorRooms(){
   roomsAvailable.forEach(function(item){
     var avail = document.getElementById(item);
     avail.style.fill = '#1ea83c';
