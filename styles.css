@@ -187,7 +187,7 @@ input{
   }
   */
 /*------------------Submit Button------------------*/
-
+/*
 #submitForm{
   position: absolute;
   top:460px;
@@ -196,6 +196,7 @@ input{
 }
 #submit{
   background-color: #8c6951; /* Green */
+/*
   border: none;
   color: #f7f5e6;
   padding: 15px 32px;
@@ -207,7 +208,7 @@ input{
   letter-spacing: .1em;
 
 }
-
+*/
 
 /*------------------Right Room Picker Div------------------*/
 
@@ -255,7 +256,6 @@ width: 30%;
 padding: 50px 25px 0px 25px;*/
 display:block;
 margin: auto;
-
 }
 .st0{
   fill: #919191;
@@ -373,9 +373,10 @@ li {
     #wrapperBlack {
         width: 100%;
         padding: 0px;
+
       }
       header {
-        position: fixed;
+        position: relative;
         height: 64px;
       }
       #headerNav{
@@ -386,7 +387,7 @@ li {
         position: relative;
         width: 100%;
         height: 153px;
-        top:65px;
+        top: 0px;
       }
       .aside:before { /*clipped corner*/
           content: none;
@@ -407,8 +408,103 @@ li {
       }
       label{
         font-size: .7em
-
       }
+    .hotel-container{
+      width: 100%;
+      margin-left: 0px;
+      position: relative;
+    }
+    .hotel-container:before {
+        content: none;
+    }
+    .relativeFooter {
+      position:absolute;
+      top: 900px;
+    }
+    #hotelContainerHeader{
+        padding: 0px 0px 5px;
+        border-bottom: 3px solid #8c6951;
+        color: black;
+
+    }
+    #hotelContainerHeader h3{
+      margin-left: 0%;
+      padding: 5px 0px 0px 0px;
+      line-height: 1em;
+      text-align: center;
+    }
+    .oneThird{
+      width: 100%;
+      display: block;
+      outline: 1px solid red;
+      height: 200px;
+
+    }
+    svg{
+      width: 34%;
+      padding: 0px 40px 0px 0px;
+    }
+    h6{
+      font-size: .5em;
+      float: none;
+      text-align: center;
+      margin: -70% auto;
+    }
+    .pop-up{
+      position: fixed;
+      top: 300px;
+      left: 0px;
+      margin: 0;
+      width: 100%;
+      z-index: 100;
+      padding: 10px;
+      box-shadow: none;
+    }
+    .pop-up img{
+      margin: 0px auto;
+      width: 100px;
+    }
+
+    .pop-up h3{
+      margin: 7px 7px;
+    }
+
+    .pop-up ul{
+    padding: 0px
+    }
+
+    .pop-up li{
+    display: block;
+    padding: 3px;
+    margin-left: 5px;
+    }
+
+    .btn {
+      display: block;
+      border-radius: 0px;
+      font-family: Arial;
+      color: #8c6951;
+      font-size: 18px;
+      background: #f7f5e6 ;
+      padding: 10px 20px 10px 20px;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #4fd6cf ;
+      text-decoration: none;
+      color: #8c6951;
+    }
+
+    .pop-up h4{
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      color:  #4fd6cf;
+      font-family: 'Teko';
+      font-size: 30px;
+      line-height: 1.1em;
+    }
 -------------------
 }
 
