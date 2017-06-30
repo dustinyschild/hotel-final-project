@@ -439,7 +439,7 @@ li {
     .oneThird{
       width: 100%;
       display: block;
-      outline: 1px solid red;
+      outline: 1px solid none;
 
     }
     svg{
@@ -515,9 +515,7 @@ li {
 /*--------------Ipad---------------*/
 
 @media only screen and (max-width: 780px) and (min-width: 501px) {
-    body {
-        background-color: lightgreen;
-    }
+
     #wrapper {
         width: 100%;
         position:absolute;
