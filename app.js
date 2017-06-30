@@ -282,6 +282,9 @@ checkboxes.forEach(function(item){
       checkBoxFilter(roomsAvailable);
       colorRooms();
     } else {
+      checkboxes.forEach(function(item){
+        item.checked = false;
+      }); //uncheck all the boxes, this is a hack and bad user experience, find a way to fix properly if time allows
       filterRooms();
       checkBoxFilter(roomsAvailable);
     }
