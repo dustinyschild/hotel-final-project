@@ -282,6 +282,7 @@ checkboxes.forEach(function(item){
       checkBoxFilter(roomsAvailable);
     } else {
       filterRooms();
+      checkBoxFilter(roomsAvailable);
     }
   });
 });
@@ -301,9 +302,8 @@ var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'mi
 function filterRooms(){
   var dropdownBox = document.getElementById('dropdown-box');
   var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
-  console.log(roomTypeSelected);
-  roomsAvailable.splice(0,roomsAvailable.length);
-  roomsNotAvailable.splice(0,roomsNotAvailable.length);
+  roomsAvailable = [];
+  roomsNotAvailable = [];
   for (var key in hotelA.hotelRooms){
     if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
       roomsAvailable.push(key);
@@ -312,8 +312,6 @@ function filterRooms(){
       roomsNotAvailable.push(key);
     }
   }
-  console.log(roomsAvailable);
-  console.log(roomsNotAvailable);
   roomsAvailable.forEach(function(item){
     var avail = document.getElementById(item);
     avail.style.fill = '#1ea83c';
