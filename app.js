@@ -1,6 +1,80 @@
 'use strict';
 
 var reserveButton;
+var roomsAvailable = [];
+var amenitiesAvailable = [];
+var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
+
+function filterRooms(){
+  var dropdownBox = document.getElementById('dropdown-box');
+  var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
+  roomsAvailable = [];
+  for (var key in hotelA.hotelRooms){
+    if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
+      roomsAvailable.push(key);
+    }
+  }
+  colorRooms();
+}
+
+function colorRooms(){
+  var grayAllRooms = hotelA.getValidRoomNumbers();
+  grayAllRooms.forEach(function(item){
+    var gray = document.getElementById(item);
+    if(gray)
+      gray.style.fill = '#919191';
+  });
+  roomsAvailable.forEach(function(item){
+    var avail = document.getElementById(item);
+    if(avail)
+      avail.style.fill = '#1ea83c';
+  });
+}
+
+function checkBoxFilter(roomsAvailable) {
+  amenitiesAvailable = [];
+  roomsAvailable.forEach(function(item){
+    for (var property in hotelA.hotelRooms[item]){
+      if (property === 'iceCreamBar' ||
+      property === 'wetBar' ||
+      property === 'hotTub' ||
+      property === 'miniBar' ||
+      property === 'fridge' ||
+      property === 'microwave' ||
+      property === 'kitchenette') {
+        if (hotelA.hotelRooms[item][property] && amenitiesAvailable.indexOf(hotelA.hotelRooms[item][property]) < 0){
+          amenitiesAvailable.push(property);
+        }
+      }
+    }
+  });
+  updateCheckboxes();
+}
+
+function updateCheckboxes(){
+  checkBoxesList.forEach(function(item){
+    if (amenitiesAvailable.indexOf(item) < 0){
+      var inputElement = document.getElementById(item);
+      inputElement.disabled = true;
+      var labelElement = inputElement.parentElement;
+      labelElement.style.color = 'lightgray';
+    }
+    else {
+      var inputElement = document.getElementById(item);
+      inputElement.disabled = false;
+      var labelElement = inputElement.parentElement;
+      labelElement.style.color = 'black';
+    }
+  });
+}
+
+function roomsAvailableByAmenity(amenity){
+  for(var i = roomsAvailable.length - 1; i > -1; i--){
+    if(!hotelA.hotelRooms[roomsAvailable[i]][amenity]){
+      roomsAvailable.splice(i, 1);
+    }
+  }
+}
 
 function onLoad(){
   if(!window.localStorage.roomVacancy){
@@ -147,37 +221,6 @@ Hotel.prototype.displayRoom = function(e) {
   }
 };
 
-function getTargetHotelRommProperty(targetRoom, propertyName, here) {
-  for (var key in here.hotelRooms){
-    if (key === targetRoom){
-      var target = here.hotelRooms[key][propertyName];
-    }
-  }
-  return target;
-}
-
-function buildTrueAmenitiesList(container, targetRoom, here) {
-  for (var key in here.hotelRooms){
-    if (key === targetRoom){
-      var obj = here.hotelRooms[key];
-      for (var property in obj) {
-        if (property === 'iceCreamBar' ||
-        property === 'wetBar' ||
-        property === 'hotTub' ||
-        property === 'miniBar' ||
-        property === 'fridge' ||
-        property === 'microwave' ||
-        property === 'kitchenette'){
-          if (obj[property]) {
-            var roomAmenity = document.createElement('li');
-            roomAmenity.innerText = obj[property];
-            container.appendChild(roomAmenity);
-          }
-        }
-      }
-    }
-  }
-}
 Hotel.prototype.randomOccupancy = function(){
   for (var key in this.hotelRooms) {
     if(Math.random() < 0.2){
@@ -258,7 +301,6 @@ var hotelRoomsA = [
 
 var hotelA = new Hotel('thisisahotel','itliveshere','hotelPlaceholder.jpg','hotelPlaceholder2.svg',hotelRoomsA);
 
-console.log(hotelA);
 window.addEventListener('load', onLoad);
 
 window.addEventListener('click', function(event){
@@ -290,78 +332,3 @@ checkboxes.forEach(function(item){
     }
   });
 });
-
-var roomsAvailable = [];
-var amenitiesAvailable = [];
-var checkBoxesList = ['iceCreamBar','wetBar', 'hotTub', 'miniBar', 'fridge', 'microwave', 'kitchenette'];
-
-function filterRooms(){
-  var dropdownBox = document.getElementById('dropdown-box');
-  var roomTypeSelected = dropdownBox.options[dropdownBox.selectedIndex].value;
-  roomsAvailable = [];
-  for (var key in hotelA.hotelRooms){
-    if (roomTypeSelected === hotelA.hotelRooms[key].roomType && hotelA.hotelRooms[key].isVacant){
-      roomsAvailable.push(key);
-    }
-  }
-  colorRooms();
-}
-
-function colorRooms(){
-  var grayAllRooms = hotelA.getValidRoomNumbers();
-  grayAllRooms.forEach(function(item){
-    var gray = document.getElementById(item);
-    if(gray)
-      gray.style.fill = '#919191';
-  });
-  roomsAvailable.forEach(function(item){
-    var avail = document.getElementById(item);
-    if(avail)
-      avail.style.fill = '#1ea83c';
-  });
-}
-
-function checkBoxFilter(roomsAvailable) {
-  amenitiesAvailable = [];
-  roomsAvailable.forEach(function(item){
-    for (var property in hotelA.hotelRooms[item]){
-      if (property === 'iceCreamBar' ||
-      property === 'wetBar' ||
-      property === 'hotTub' ||
-      property === 'miniBar' ||
-      property === 'fridge' ||
-      property === 'microwave' ||
-      property === 'kitchenette') {
-        if (hotelA.hotelRooms[item][property] && amenitiesAvailable.indexOf(hotelA.hotelRooms[item][property]) < 0){
-          amenitiesAvailable.push(property);
-        }
-      }
-    }
-  });
-  updateCheckboxes();
-}
-
-function updateCheckboxes(){
-  checkBoxesList.forEach(function(item){
-    if (amenitiesAvailable.indexOf(item) < 0){
-      var inputElement = document.getElementById(item);
-      inputElement.disabled = true;
-      var labelElement = inputElement.parentElement;
-      labelElement.style.color = 'lightgray';
-    }
-    else {
-      var inputElement = document.getElementById(item);
-      inputElement.disabled = false;
-      var labelElement = inputElement.parentElement;
-      labelElement.style.color = 'black';
-    }
-  });
-}
-
-function roomsAvailableByAmenity(amenity){
-  for(var i = roomsAvailable.length - 1; i > -1; i--){
-    if(!hotelA.hotelRooms[roomsAvailable[i]][amenity]){
-      roomsAvailable.splice(i, 1);
-    }
-  }
-}
