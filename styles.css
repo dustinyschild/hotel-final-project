@@ -199,11 +199,14 @@ label{ /*labels for checkboxes*/
 }
 
 /*------------------Blue Print------------------*/
+.rotate{
+  -webkit-transform: rotate(90deg)
+
+}
 .oneThird{
   width:70%;
   display: block;
   outline: 1px solid none;
-  -webkit-transform: rotate(90deg)
 
 }
 svg{
