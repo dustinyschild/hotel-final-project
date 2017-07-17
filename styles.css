@@ -217,7 +217,8 @@ margin: auto;
 .st0{
   fill: #919191;
   stroke: black;
-  stroke-width: 3px
+  stroke-width: 3px;
+  cursor: pointer;
 }
 h6{
   color: black;
