@@ -207,6 +207,7 @@ label{ /*labels for checkboxes*/
   width:70%;
   display: block;
   outline: 1px solid none;
+  cursor: pointer;
 
 }
 svg{
