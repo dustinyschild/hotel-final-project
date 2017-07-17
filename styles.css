@@ -203,6 +203,7 @@ label{ /*labels for checkboxes*/
   width:70%;
   display: block;
   outline: 1px solid none;
+  -webkit-transform: rotate(90deg)
 
 }
 svg{
